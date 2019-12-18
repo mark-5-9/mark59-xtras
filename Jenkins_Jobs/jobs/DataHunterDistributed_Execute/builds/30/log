@@ -1,0 +1,63 @@
+Started by upstream project "[8mha:////4Hzw5mnxjsir2v8BiIQFQCnBsewUw45m13r3aOOB+FB3AAAAth+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz9EgZT/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFIbK/cVKBkcGpRWWZyarE+AJYdIwHqAAAA[0mDataHunterDistributed_DistributedJmeterServices" build number [8mha:////4J0ZEuVjlHDjBjXnaLLg6nnc8yNbADpBDrfRBypMMwN/AAAAuB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgZz/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFIbK/cVKBkcGpRWWZyarG+sQkAZlNUROwAAAA=[0m34
+originally caused by:
+ Started by user [8mha:////4CtB8jC9kLs/QI9dTXtKBMt5oG64QCmUvc0S4EeTYJtbAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute
+[DataHunterDistributed_Execute] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins12337845130375447633.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationExecute.bat 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM  Run a Jmeter Test in non-GUI mode from Jenkins (standalone or distributed)  
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM   
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM  Note: to change a Jmeter property add -J{property}={value} to the jmeter command  (-G is required to pass to all instances in a distributed test). 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM        eg, to use xml as the default output file format: 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>if true EQU false (
+call C:\work\Admin\JenkinsConfig\reportUnstable.bat  
+ Exit /B 0 
+) 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>echo "execting test plan.........................." 
+"execting test plan.........................."
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>if true EQU false (Exit /B 1 ) 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>if true EQU true (
+if false EQU true (RMDIR C:\Temp /s /q    )  
+ C: 
+ if exist C:\Jmeter_Results\DataHunterDistributed\ RD /Q /S C:\Jmeter_Results\DataHunterDistributed  
+ mkdir C:\Jmeter_Results\DataHunterDistributed  
+ REM https://www.howtogeek.com/forum/topic/wmic-not-recognized-as-an-internal-or-external-command (wmic, similar issue for ssh)  
+ set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem  
+ cd C:\apache-jmeter\bin  
+ break1>C:\Jmeter_Results\DataHunterDistributed\DataHunterDistributedTestResults.csv  
+ jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -l C:\Jmeter_Results\DataHunterDistributed\DataHunterDistributedTestResults.csv   -GForceTxnFailPercent=0 -GDataHunterUrlHostPort=http://MASTERPC:8081      
+ if false EQU true (
+MKDIR C:\Temp  
+ COPY C:\Jmeter_Results\DataHunterDistributed C:\Temp 
+)  
+ EXIT /B 0 
+) 
+Creating summariser <summary>
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Configuring remote engine: 10.111.11.111
+Configuring remote engine: 10.222.22.22
+Starting remote engines
+Starting the test @ Wed Dec 18 15:24:50 AEDT 2019 (1576643090226)
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Remote engines have been started
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Tidying up remote @ Wed Dec 18 15:26:16 AEDT 2019 (1576643176746)
+Exiting remote servers
+... end of run
+Triggering a new build of [8mha:////4JSF5NMaouKx01DlIMb0GGdn1Zl+DHQDjVVAkq00zMk2AAAArR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyZEgYl/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFBqcWlOSX6AHZKSXnXAAAA[0mDataHunterDistributed_Result
+Finished: SUCCESS

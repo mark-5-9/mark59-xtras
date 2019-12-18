@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/color.css" />
+	</head>
+	<body>
+<script type="text/javascript">
+	function toggleList(list){
+		element = document.getElementById(list).style;
+		element.display == 'none' ? element.display='block' : element.display='none';
+	}
+</script>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8082///static/8253c371/images/16x16/red.gif" style="margin: 2px;" width="24" alt="Error Icon" height="24" />
+<a href="javascript:toggleList('Error')" target="_self"><STRONG>Error (0)</STRONG></a><br />
+<ul style="display: none;" id="Error" >
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8082///static/8253c371/images/16x16/yellow.gif" style="margin: 2px;" width="24" alt="Warning Icon" height="24" />
+<a href="javascript:toggleList('Warning')" target="_self"><STRONG>Warning (2)</STRONG></a><br />
+<ul style="display: none;" id="Warning" >
+ <a target="content" href="log_content.html">Beginning of log</a>
+<br/>(2 Warnings in this section)<br/>
+<li>1 <a target="content" href="log_content.html#WARNING1"><span class="warning" style="color: orange">Runcheck: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL Average on mylocal.  Range is set as 5.0 to 60.0, actual was 68.0</span></a></li>
+<li>2 <a target="content" href="log_content.html#WARNING2"><span class="warning" style="color: orange">Runcheck: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL PercentOver90 on mylocal.  Range is set as 0.0 to 10.0, actual was 16.67</span></a></li>
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8082///static/8253c371/images/16x16/blue.gif" style="margin: 2px;" width="24" alt="Info Icon" height="24" />
+<a href="javascript:toggleList('Info')" target="_self"><STRONG>Info (0)</STRONG></a><br />
+<ul style="display: none;" id="Info" >
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8082///static/8253c371/images/16x16/gray.gif" style="margin: 2px;" width="24" alt="Debug Icon" height="24" />
+<a href="javascript:toggleList('Debug')" target="_self"><STRONG>Debug (0)</STRONG></a><br />
+<ul style="display: none;" id="Debug" >
+</ul>
+	</body>
+</html>

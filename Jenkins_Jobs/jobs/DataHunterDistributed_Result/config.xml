@@ -1,0 +1,219 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;br&gt;&#xd;
+For Trending Analysis of these runs see the   &lt;a href=&quot;http://localhost:8080/metrics/trending?reqApp=DataHunterDistributed&quot;&gt;DataHunterDistributed Trends &#xd;
+in the Trending Analysis Tool&lt;/a&gt;&#xd;
+&lt;br&gt;&#xd;
+To review the current SLA definitiions see  &lt;a href=&quot;http://localhost:8080/metrics/viewSlaList?reqApp=DataHunterDistributed&quot;&gt;the SLA database list&lt;/a&gt;&#xd;
+&lt;br&gt;&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>100</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>parmExecuteScriptVerificationPassed</name>
+          <description>to run this job to re-load results tick this as true </description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>parmExecuteResult</name>
+          <description>for manual rerun, endure set to:  Execution_OK</description>
+          <defaultValue>Execution_OK</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Application</name>
+          <description>defines the application name being tested.
+Impacts directory structure etc.</description>
+          <defaultValue>DataHunterDistributed</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Granularity</name>
+          <description>defines the granularity for jmeter graph reporting.
+value is in milliseconds</description>
+          <defaultValue>15000</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterHomeReportGeneration</name>
+          <description></description>
+          <defaultValue>C:\apache-jmeter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>MetricsReportSplit</name>
+          <description>Option to create separate report(s) for metric data:&lt;br&gt;
+ -  &apos;CreateMetricsReport&apos; - create separate file with all non-txn data, suffixed _METRICS, &lt;br&gt; 
+ -  &apos;SplitByDataType&apos; create a file per datatype, suffixed with _{datatype}. &lt;br&gt; 
+ -  &apos;No&apos; - just put everything in the one output file (this is the program default when if paremeter is not entered)&lt;br&gt; </description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>SplitByDataType</string>
+              <string>No</string>
+              <string>CreateMetricsReport</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>ErrorTransactionNaming</name>
+          <description>How to handle txns marked as failed.&lt;br&gt;
+ - &apos;Rename&apos; suffixes the failed txn names with &apos;_ERRORED&apos;.&lt;br&gt; 
+ - &apos;Duplicate&apos; keeps the orignal txn plus adds a &apos;_ERRORED&apos; txn.&lt;br&gt; 
+ - &apos;No&apos; - just keep original txn name. (this is the program default when if paremeter is not entered)&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>No</string>
+              <string>Rename</string>
+              <string>Duplicate</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>eXcludeResultsWithSub</name>
+          <description>Whether to exclude the &apos;main&apos; sample Result data for sample Results that have SubResults.&lt;br&gt;
+ - &apos;True&apos; exclude main Results  (this is the program default when if paremeter is not entered).&lt;br&gt; 
+ - &apos;False&apos; include main Results.&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>True</string>
+              <string>False</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>mysqlserver</name>
+          <description>Server hosting the &apos;pvmetrics&apos; mySql database where results will be held</description>
+          <defaultValue>localhost</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>mysqlPort</name>
+          <description>Port number for the &apos;pvmetrics&apos; mySql database where results will be held</description>
+          <defaultValue>3306</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>eXcludestart</name>
+          <description>(optional) EXclude results at the start of the test for the given number of minutes.   Filter eg:  &lt;b&gt;&lt;code&gt;-x 10&lt;/code&gt;&lt;/b&gt; &lt;br&gt;
+Leave blank for no exculsion.</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>captureperiod</name>
+          <description>(optional) EXclude results at the start of the test for the given number of minutes.   Filter eg:  &lt;b&gt;&lt;code&gt;-c 60&lt;/code&gt;&lt;/b&gt; &lt;br&gt;
+Leave blank for no exculsion.</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SetPath</name>
+          <description>Set Path required to invoke commands</description>
+          <defaultValue>${JAVA_HOME}\bin;C:\Windows\System32;C:\windows\system32\wbem</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationResult.bat</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.1">
+      <unstableOnWarning>true</unstableOnWarning>
+      <failBuildOnError>true</failBuildOnError>
+      <showGraphs>false</showGraphs>
+      <parsingRulesPath>C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_ParsingRules\LogParseRulesGenericJMeterAndVugen.txt</parsingRulesPath>
+      <useProjectRule>false</useProjectRule>
+    </hudson.plugins.logparser.LogParserPublisher>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.21">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Transactions Report</reportName>
+          <reportDir>C:\htmlreport\${Application}</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>false</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>CPU Utilizations Report</reportName>
+          <reportDir>C:\htmlreport\${Application}CpuUtil</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Data Points Report</reportName>
+          <reportDir>C:\htmlreport\${Application}Datapoint</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>Memory Metrics Report</reportName>
+          <reportDir>C:\htmlreport\${Application}Memory</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>All Metrics Report</reportName>
+          <reportDir>C:\htmlreport\${Application}Metrics</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.19">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>15</timeoutMinutes>
+      </strategy>
+      <operationList/>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+  </buildWrappers>
+</project>

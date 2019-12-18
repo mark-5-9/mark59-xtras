@@ -1,0 +1,47 @@
+{
+  "Memory_mylocal_FreeVirtualG" : {
+    "transaction" : "Memory_mylocal_FreeVirtualG",
+    "sampleCount" : 7,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 16.857142857142858,
+    "minResTime" : 16.0,
+    "maxResTime" : 17.0,
+    "pct1ResTime" : 17.0,
+    "pct2ResTime" : 17.0,
+    "pct3ResTime" : 17.0,
+    "throughput" : 0.08802263439170073,
+    "receivedKBytesPerSec" : 0.0,
+    "sentKBytesPerSec" : 0.0
+  },
+  "Memory_mylocal_FreePhysicalG" : {
+    "transaction" : "Memory_mylocal_FreePhysicalG",
+    "sampleCount" : 7,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 19.142857142857142,
+    "minResTime" : 19.0,
+    "maxResTime" : 20.0,
+    "pct1ResTime" : 20.0,
+    "pct2ResTime" : 20.0,
+    "pct3ResTime" : 20.0,
+    "throughput" : 0.08802042073761113,
+    "receivedKBytesPerSec" : 0.0,
+    "sentKBytesPerSec" : 0.0
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 14,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 18.0,
+    "minResTime" : 16.0,
+    "maxResTime" : 20.0,
+    "pct1ResTime" : 19.5,
+    "pct2ResTime" : 20.0,
+    "pct3ResTime" : 20.0,
+    "throughput" : 0.17604084147522225,
+    "receivedKBytesPerSec" : 0.0,
+    "sentKBytesPerSec" : 0.0
+  }
+}
