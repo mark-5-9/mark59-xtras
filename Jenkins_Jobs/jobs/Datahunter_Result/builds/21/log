@@ -1,32 +1,32 @@
 Started by user [8mha:////4CtB8jC9kLs/QI9dTXtKBMt5oG64QCmUvc0S4EeTYJtbAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
 Running as SYSTEM
-Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result
-[Datahunter_Result] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins7277686145648502241.bat
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result
+[DataHunter_Result] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins7277686145648502241.bat
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationResult.bat 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationResult.bat 
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>C:
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>C:
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>echo parmExecuteScriptVerificationPassed=true 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>echo parmExecuteScriptVerificationPassed=true 
 parmExecuteScriptVerificationPassed=true
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>echo parmExecuteResult=Execution_OK 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>echo parmExecuteResult=Execution_OK 
 parmExecuteResult=Execution_OK
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>set PATH=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>set PATH=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>echo PATH       is C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>echo PATH       is C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
 PATH       is C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>java -version 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>java -version 
 openjdk version "11" 2018-09-25
 OpenJDK Runtime Environment 18.9 (build 11+28)
 OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
 
-C:\_Jenkins\JENKINS_HOME\workspace\Datahunter_Result>if "Execution_OK" EQU "Execution_OK" (
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Result>if "Execution_OK" EQU "Execution_OK" (
 echo "load results into graphical comparative analysis tooling"   
  cd C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target  
- java -jar metricsRuncheck.jar -a DataHunter -i C:\Jmeter_Results\DataHunter -h localhost  -p 3306 -t JMETER   -r "<a href='http://localhost:8082/job/Datahunter_Result/21/HTML_Report'>run 21</a>"  
+ java -jar metricsRuncheck.jar -a DataHunter -i C:\Jmeter_Results\DataHunter -h localhost  -p 3306 -t JMETER   -r "<a href='http://localhost:8082/job/DataHunter_Result/21/HTML_Report'>run 21</a>"  
  echo "convert xml file to csv"   
  if exist C:\Jmeter_Results\DataHunter\MERGED\ RD /S /Q C:\Jmeter_Results\DataHunter\MERGED	  
  mkdir C:\Jmeter_Results\DataHunter\MERGED\   
@@ -58,7 +58,7 @@ Runcheck executing using the following arguments
 ------------------------------------------------ 
  application    : DataHunter
  input          : C:\Jmeter_Results\DataHunter
- reference      : <a href='http://localhost:8082/job/Datahunter_Result/21/HTML_Report'>run 21</a>
+ reference      : <a href='http://localhost:8082/job/DataHunter_Result/21/HTML_Report'>run 21</a>
  tool           : JMETER
  mysqlserver    : localhost
  mysqlPort      : 3306
@@ -143,10 +143,10 @@ errorlevel=1
 Press any key to continue . . . 
 06:49 PM
 [htmlpublisher] Archiving HTML reports...
-[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunter to C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\Transactions_5fReport
-[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterCpuUtil to C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\CPU_Utilizations_Report
-[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDatapoint to C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\Data_Points_Report
-[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterMemory to C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\Memory_Metrics_Report
-[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterMetrics to C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\All_Metrics_Report
-Error: IOException occured writing report to file C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\All_Metrics_Report\htmlpublisher-wrapper.html to archiveDir:DataHunterMetrics, error:C:\_Jenkins\JENKINS_HOME\jobs\Datahunter_Result\builds\21\htmlreports\All_Metrics_Report\htmlpublisher-wrapper.html (The system cannot find the path specified)
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunter to C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\Transactions_5fReport
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterCpuUtil to C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\CPU_Utilizations_Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDatapoint to C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\Data_Points_Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterMemory to C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\Memory_Metrics_Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterMetrics to C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\All_Metrics_Report
+Error: IOException occured writing report to file C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\All_Metrics_Report\htmlpublisher-wrapper.html to archiveDir:DataHunterMetrics, error:C:\_Jenkins\JENKINS_HOME\jobs\DataHunter_Result\builds\21\htmlreports\All_Metrics_Report\htmlpublisher-wrapper.html (The system cannot find the path specified)
 Finished: SUCCESS
