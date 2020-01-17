@@ -1,3 +1,4 @@
+# # from gibHub recommended 'Java' ignores..
 # Compiled class file
 *.class
 
@@ -21,3 +22,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# # Other files not in the gibHub default ignores (Eclipse / IDE settings / maven targets etc)
+.settings/
+*/bin/
+*/classes/
+*/target/
+*/.settings/
+*/.metadata/
+*.classpath
+*.factorypath
+*.project
+jmeter.log
