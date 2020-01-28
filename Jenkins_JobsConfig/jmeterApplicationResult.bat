@@ -13,7 +13,7 @@ if "%parmExecuteResult%" equ "Execution_OK" (
 
     echo "load results into graphical comparative analysis tooling" 
 
-    cd C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target
+    cd C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target
     java -jar metricsRuncheck.jar -a %Application% -i C:\Jmeter_Results\%Application% -h %mysqlserver%  -p %mysqlPort% -t JMETER %eXcludestart% %captureperiod% -r "<a href='%BUILD_URL%HTML_Report'>run %BUILD_NUMBER%</a>"
 
     echo "convert xml file to csv" 
@@ -21,7 +21,7 @@ if "%parmExecuteResult%" equ "Execution_OK" (
     if exist C:\Jmeter_Results\%Application%\MERGED\ RD /S /Q C:\Jmeter_Results\%Application%\MERGED	
     mkdir C:\Jmeter_Results\%Application%\MERGED\ 
 
-    cd C:\gitrepo\mark-5-9\mark59-wip\resultFilesConverter\target
+    cd C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target
     java -jar resultFilesConverter.jar -iC:\Jmeter_Results\%Application% -f%Application%TestResults_converted.csv -m%MetricsReportSplit% -e%ErrorTransactionNaming% -x%eXcludeResultsWithSub%
 
     echo "run jmeter report(s) generation"     
