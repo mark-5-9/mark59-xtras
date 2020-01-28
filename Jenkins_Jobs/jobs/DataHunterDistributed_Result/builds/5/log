@@ -29,12 +29,12 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>if "Execution_OK" EQU "Execution_OK" (
 echo "load results into graphical comparative analysis tooling"   
- cd C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target  
+ cd C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target  
  java -jar metricsRuncheck.jar -a DataHunterDistributed -i C:\Jmeter_Results\DataHunterDistributed -h pv-reporting.MYCORP.corp  -p 3309 -t JMETER   -r "<a href='http://10.222.22.22:8082/job/DataHunterDistributed_Result/5/HTML_Report'>run 5</a>"  
  echo "convert xml file to csv"   
  if exist C:\Jmeter_Results\DataHunterDistributed\MERGED\ RD /S /Q C:\Jmeter_Results\DataHunterDistributed\MERGED	  
  mkdir C:\Jmeter_Results\DataHunterDistributed\MERGED\   
- cd C:\gitrepo\mark-5-9\mark59-wip\resultFilesConverter\target  
+ cd C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target  
  java -jar resultFilesConverter.jar -iC:\Jmeter_Results\DataHunterDistributed -fDataHunterDistributedTestResults_converted.csv -mSplitByDataType -eNo -xTrue  
  echo "run jmeter report(s) generation"       
  rmdir /s /q C:\htmlreport\DataHunterDistributed  
@@ -72,7 +72,7 @@ Runcheck executing using the following arguments
  timeZone       : Australia/Sydney
 ------------------------------------------------   
 
-2019-12-12 14:50:49.255  INFO 29252 --- [           main] com.mark59.metricsruncheck.Runcheck      : Starting Runcheck v2.1.0 on SLAVEPC with PID 29252 (C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target\metricsRuncheck.jar started by SUSER2 in C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target)
+2019-12-12 14:50:49.255  INFO 29252 --- [           main] com.mark59.metricsruncheck.Runcheck      : Starting Runcheck v2.1.0 on SLAVEPC with PID 29252 (C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target\metricsRuncheck.jar started by SUSER2 in C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target)
 2019-12-12 14:50:49.258  INFO 29252 --- [           main] com.mark59.metricsruncheck.Runcheck      : No active profile set, falling back to default profiles: default
 2019-12-12 14:50:49.794  INFO 29252 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
 2019-12-12 14:50:49.810  INFO 29252 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
@@ -135,7 +135,7 @@ Caused by: java.lang.RuntimeException:  A valid date range for the test was not 
 	... 11 more
 "convert xml file to csv" 
 Result File Conversion starting ..
-cwd = C:\gitrepo\mark-5-9\mark59-wip\resultFilesConverter\target
+cwd = C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target
 
 JmterResultsConverter  executing using the following arguments 
 -------------------------------------------------------------- 

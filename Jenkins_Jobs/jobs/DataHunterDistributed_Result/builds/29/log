@@ -29,12 +29,12 @@ OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>if "Execution_OK" EQU "Execution_OK" (
 echo "load results into graphical comparative analysis tooling"   
- cd C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target  
+ cd C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target  
  java -jar metricsRuncheck.jar -a DataHunterDistributed -i C:\Jmeter_Results\DataHunterDistributed -h localhost  -p 3306 -t JMETER   -r "<a href='http://localhost:8082/job/DataHunterDistributed_Result/29/HTML_Report'>run 29</a>"  
  echo "convert xml file to csv"   
  if exist C:\Jmeter_Results\DataHunterDistributed\MERGED\ RD /S /Q C:\Jmeter_Results\DataHunterDistributed\MERGED	  
  mkdir C:\Jmeter_Results\DataHunterDistributed\MERGED\   
- cd C:\gitrepo\mark-5-9\mark59-wip\resultFilesConverter\target  
+ cd C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target  
  java -jar resultFilesConverter.jar -iC:\Jmeter_Results\DataHunterDistributed -fDataHunterDistributedTestResults_converted.csv -mSplitByDataType -eNo -xTrue  
  echo "run jmeter report(s) generation"       
  rmdir /s /q C:\htmlreport\DataHunterDistributed  
@@ -72,7 +72,7 @@ Runcheck executing using the following arguments
  timeZone       : Australia/Sydney
 ------------------------------------------------   
 
-2019-12-18 15:26:35.803  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : Starting Runcheck v2.1.1 on MASTERPC with PID 28408 (C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target\metricsRuncheck.jar started by SUSER1 in C:\gitrepo\mark-5-9\mark59-wip\metricsRuncheck\target)
+2019-12-18 15:26:35.803  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : Starting Runcheck v2.1.1 on MASTERPC with PID 28408 (C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target\metricsRuncheck.jar started by SUSER1 in C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target)
 2019-12-18 15:26:35.803  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : No active profile set, falling back to default profiles: default
 2019-12-18 15:26:36.504  INFO 28408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
 2019-12-18 15:26:36.521  INFO 28408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
@@ -108,7 +108,7 @@ runcheck completed.
 2019-12-18 15:26:37.757  INFO 28408 --- [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 "convert xml file to csv" 
 Result Files Converter starting .. (v2.1.1) 
-cwd = C:\gitrepo\mark-5-9\mark59-wip\resultFilesConverter\target
+cwd = C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target
 
 JmterResultsConverter  executing using the following arguments 
 -------------------------------------------------------------- 

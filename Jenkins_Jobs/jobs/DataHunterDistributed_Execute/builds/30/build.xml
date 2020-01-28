@@ -26,7 +26,7 @@
         <hudson.model.StringParameterValue>
           <name>JmeterTestPlan</name>
           <description></description>
-          <value>C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</value>
+          <value>C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</value>
         </hudson.model.StringParameterValue>
         <hudson.model.StringParameterValue>
           <name>TestResultsFileName</name>
@@ -231,7 +231,7 @@ Additional optional arguments that can be passed to Jmeter. For example, if your
           <string>JmeterHome</string>
           <string>C:\apache-jmeter</string>
           <string>JmeterTestPlan</string>
-          <string>C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</string>
+          <string>C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</string>
           <string>JOB_BASE_NAME</string>
           <string>DataHunterDistributed_Execute</string>
           <string>JOB_DISPLAY_URL</string>

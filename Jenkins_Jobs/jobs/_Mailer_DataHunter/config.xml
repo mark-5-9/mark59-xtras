@@ -31,7 +31,7 @@ Emails to :  (comma delimited email list)</description>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
     <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.68">
-      <recipientList>philip.webb@iag.com.au</recipientList>
+      <recipientList>my.name@mycompany.com</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.SuccessTrigger>
           <email>

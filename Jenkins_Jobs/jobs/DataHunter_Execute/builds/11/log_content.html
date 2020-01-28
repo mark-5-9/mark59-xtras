@@ -30,7 +30,7 @@ C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM  Note: to change a 
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM        eg, to use xml as the default output file format: 
 
-C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM
 
@@ -53,7 +53,7 @@ if false EQU true (RMDIR C:\Temp /s /q    )
  set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem  
  cd C:\apache-jmeter\bin  
  break1&gt;C:\Jmeter_Results\DataHunter\  
- jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -l C:\Jmeter_Results\DataHunter\   -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://localhost:8081      
+ jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -l C:\Jmeter_Results\DataHunter\   -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://localhost:8081      
  if false EQU true (
 MKDIR C:\Temp  
  COPY C:\Jmeter_Results\DataHunter C:\Temp 
@@ -62,7 +62,7 @@ MKDIR C:\Temp
 ) 
 The system cannot find the path specified.
 Creating summariser &lt;summary&gt;
-Created the tree successfully using C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
 Starting the test @ Wed Dec 18 12:01:43 AEDT 2019 (1576630903805)
 Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
 Warning: Nashorn engine is planned to be removed from a future JDK release

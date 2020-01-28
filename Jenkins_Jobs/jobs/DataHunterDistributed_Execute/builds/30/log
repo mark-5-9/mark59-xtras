@@ -17,7 +17,7 @@ C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM  Note: to c
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM        eg, to use xml as the default output file format: 
 
-C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
 
 C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute>REM
 
@@ -40,7 +40,7 @@ if false EQU true (RMDIR C:\Temp /s /q    )
  set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem  
  cd C:\apache-jmeter\bin  
  break1>C:\Jmeter_Results\DataHunterDistributed\DataHunterDistributedTestResults.csv  
- jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -l C:\Jmeter_Results\DataHunterDistributed\DataHunterDistributedTestResults.csv   -GForceTxnFailPercent=0 -GDataHunterUrlHostPort=http://MASTERPC:8081      
+ jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -R 10.111.11.111,10.222.22.22 -l C:\Jmeter_Results\DataHunterDistributed\DataHunterDistributedTestResults.csv   -GForceTxnFailPercent=0 -GDataHunterUrlHostPort=http://MASTERPC:8081      
  if false EQU true (
 MKDIR C:\Temp  
  COPY C:\Jmeter_Results\DataHunterDistributed C:\Temp 
@@ -48,7 +48,7 @@ MKDIR C:\Temp
  EXIT /B 0 
 ) 
 Creating summariser <summary>
-Created the tree successfully using C:\gitrepo\mark-5-9\mark59-wip\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
 Configuring remote engine: 10.111.11.111
 Configuring remote engine: 10.222.22.22
 Starting remote engines
