@@ -273,8 +273,11 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		assertTrue("asyncMessageAnalyzerPrintResults_2", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
 	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
     
+//		end of Async processing ....    
 	    
-//		test update of multiple policies Use State works ok 	    
+	    
+//		while we are here, we'll do a bit more testing few more tests (unrelated to async) ....
+//	    test update of multiple policies Use State works  ok 	    
 
 	    // update_usability to "REUSABLE"	    
 	    updateUseStateAndEpochTime.setApplication("TESTAPI_ASYNC");
