@@ -51,7 +51,7 @@
         <hudson.model.StringParameterDefinition>
           <name>JmeterTestPlan</name>
           <description></description>
-          <defaultValue>C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</defaultValue>
+          <defaultValue>C:\gitrepo\mark-5-9\mark59\dataHunterPerformanceTestSamples\test-plans\DataHunterSeleniumTestPlan.jmx</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>

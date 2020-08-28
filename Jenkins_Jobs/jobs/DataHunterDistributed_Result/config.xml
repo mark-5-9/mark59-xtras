@@ -95,13 +95,13 @@ value is in milliseconds</description>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>mysqlserver</name>
-          <description>Server hosting the &apos;pvmetrics&apos; mySql database where results will be held</description>
+          <description>Server hosting the &apos;metricsdb&apos; mySql database where results will be held</description>
           <defaultValue>localhost</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>mysqlPort</name>
-          <description>Port number for the &apos;pvmetrics&apos; mySql database where results will be held</description>
+          <description>Port number for the &apos;metricsdb&apos; mySql database where results will be held</description>
           <defaultValue>3306</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
