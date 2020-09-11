@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='mask-passwords' version='2.13'><l:dependency name='Mask Passwords Plugin' groupId='org.jenkins-ci.plugins' artifactId='mask-passwords' version='2.13' url='https://github.com/jenkinsci/mask-passwords-plugin'><l:description>Masks passwords that may appear in the console. Provides non-stored password parameter.</l:description><l:license name='MIT License' url='http://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>
