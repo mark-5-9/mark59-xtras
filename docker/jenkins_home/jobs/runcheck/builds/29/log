@@ -1,0 +1,52 @@
+Started by user [8mha:////4JcNO2eXVR6/XoNojA2CF+q9mClDs9UKFwhrpfu3X/zgAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/runcheck
+[runcheck] $ /bin/sh -xe /tmp/jenkins3757227721578680700.sh
++ java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b08)
+OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
++ cd /var/mark59/dataHunterPerformanceTestSamples
++ ls -la
+total 34344
+drwxrwxr-x  6 jenkins jenkins     4096 Sep 11 00:47 .
+drwxrwxr-x 16 jenkins jenkins     4096 Sep 11 00:55 ..
+-rw-rw-r--  1 jenkins jenkins     1771 Sep  4 06:57 .classpath
+-rw-rw-r--  1 jenkins jenkins    13195 Sep  9 02:45 .factorypath
+-rw-rw-r--  1 jenkins jenkins      561 Sep  4 06:57 .project
+drwxrwxr-x  2 jenkins jenkins     4096 Sep  4 06:57 .settings
+-rw-rw-r--  1 jenkins jenkins     1506 Sep  4 06:52 DataHunterExecuteJmeterTest.bat
+-rwxrwxr-x  1 jenkins jenkins     1542 Sep  4 06:52 DataHunterExecuteJmeterTest.sh
+-rw-rw-r--  1 jenkins jenkins     1517 Sep  4 06:52 DeployDataHunterTestArtifactsToJmeter.bat
+-rwxrwxr-x  1 jenkins jenkins     1654 Sep  4 06:52 DeployDataHunterTestArtifactsToJmeter.sh
+-rw-rw-r--  1 jenkins jenkins     1542 Sep  4 06:52 _chromedriver_version_important_note.txt
+-rwxrwxr-x  1 jenkins jenkins 11808880 Sep  4 06:52 chromedriver
+-rw-rw-r--  1 jenkins jenkins  8674304 Sep  4 06:52 chromedriver.exe
+-rw-rw-r--  1 jenkins jenkins 14478647 Sep  4 06:52 geckodriver.exe
+-rw-r--r--  1 jenkins jenkins    72066 Sep 11 00:48 jmeter.log
+-rw-rw-r--  1 jenkins jenkins    54359 Sep  4 06:52 jmeter.properties
+-rw-rw-r--  1 jenkins jenkins      966 Sep  4 06:52 mark59.properties
+-rw-rw-r--  1 jenkins jenkins    18267 Sep  4 06:52 mark59serverprofiles.xlsx
+-rw-rw-r--  1 jenkins jenkins     4214 Sep  4 06:52 pom.xml
+drwxrwxr-x  3 jenkins jenkins     4096 Sep  4 06:52 src
+drwxrwxr-x  9 jenkins jenkins     4096 Sep  9 02:45 target
+drwxrwxr-x  2 jenkins jenkins     4096 Sep 11 00:53 test-plans
++ /var/apache-jmeter/bin/jmeter -n -X -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0
+Creating summariser <summary>
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx
+Starting standalone test @ Fri Sep 11 00:56:46 UTC 2020 (1599785806284)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+OS property has been set to : LINUX
+Warning : Server Metrics Web has recorded a failed metric response for txn : CPU_localhost (at: 1599785814105)
+Warning : Server Metrics Web has recorded a failed metric response for txn : CPU_localhost (at: 1599785833034)
+Warning : Server Metrics Web has recorded a failed metric response for txn : CPU_localhost (at: 1599785853319)
+summary +      6 in 00:00:45 =    0.1/s Avg: 12510 Min:  2375 Max: 31528 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+Warning : Server Metrics Web has recorded a failed metric response for txn : CPU_localhost (at: 1599785873100)
+summary +      6 in 00:00:32 =    0.2/s Avg: 20317 Min:  2441 Max: 32202 Err:     0 (0.00%) Active: 4 Started: 5 Finished: 1
+summary =     12 in 00:01:17 =    0.2/s Avg: 16413 Min:  2375 Max: 32202 Err:     0 (0.00%)
+summary +      3 in 00:00:25 =    0.1/s Avg: 27257 Min: 17240 Max: 32658 Err:     0 (0.00%) Active: 1 Started: 5 Finished: 4
+summary =     15 in 00:01:42 =    0.1/s Avg: 18582 Min:  2375 Max: 32658 Err:     0 (0.00%)
+summary =     15 in 00:01:42 =    0.1/s Avg: 18582 Min:  2375 Max: 32658 Err:     0 (0.00%)
+Tidying up ...    @ Fri Sep 11 00:58:30 UTC 2020 (1599785910122)
+... end of run
+Finished: SUCCESS
