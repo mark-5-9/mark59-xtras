@@ -3,11 +3,11 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>2.11</version>
+    <version>1.532.1</version>
   </parent>
 
   <artifactId>external-monitor-job</artifactId>
-  <version>1.7</version>
+  <version>1.4</version>
   <packaging>hpi</packaging>
   <name>External Monitor Job Type Plugin</name>
   <description>Adds the ability to monitor the result of externally executed jobs</description>
@@ -17,18 +17,13 @@
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <tag>external-monitor-job-1.7</tag>
+    <tag>external-monitor-job-1.4</tag>
   </scm>
-  
-  <properties>
-    <jenkins.version>1.609.3</jenkins.version>
-    <java.level>6</java.level>
-  </properties>
 
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
+      <url>http://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
 
@@ -40,11 +35,11 @@
     </license>
   </licenses>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>  
 

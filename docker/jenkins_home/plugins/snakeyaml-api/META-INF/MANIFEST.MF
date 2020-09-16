@@ -6,13 +6,13 @@ Build-Jdk: 1.8.0_222
 Extension-Name: snakeyaml-api
 Specification-Title: This plugin packages stock Snakeyaml library
 Implementation-Title: snakeyaml-api
-Implementation-Version: 1.26.4
+Implementation-Version: 1.27.0
 Group-Id: io.jenkins.plugins
 Short-Name: snakeyaml-api
 Long-Name: Snakeyaml API Plugin
 Url: https://github.com/jenkinsci/snakeyaml-api-plugin
 Minimum-Java-Version: 1.8
-Plugin-Version: 1.26.4
+Plugin-Version: 1.27.0
 Hudson-Version: 2.204.6
 Jenkins-Version: 2.204.6
 Plugin-Developers: 

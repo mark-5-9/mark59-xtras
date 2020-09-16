@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>git</artifactId>
-  <version>4.4.1</version>
+  <version>4.4.2</version>
   <packaging>hpi</packaging>
   <name>Jenkins Git plugin</name>
   <description>Integrates Jenkins with Git SCM</description>
@@ -38,7 +38,7 @@
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/git-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/git-plugin.git</developerConnection>
-    <tag>git-4.4.1</tag>
+    <tag>git-4.4.2</tag>
     <url>https://github.com/jenkinsci/git-plugin</url>
   </scm>
   <distributionManagement>

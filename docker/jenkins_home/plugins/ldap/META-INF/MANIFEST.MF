@@ -6,14 +6,14 @@ Build-Jdk: 1.8.0_211
 Extension-Name: ldap
 Specification-Title: Adds LDAP authentication to Jenkins
 Implementation-Title: ldap
-Implementation-Version: 1.24
+Implementation-Version: 1.22
 Group-Id: org.jenkins-ci.plugins
 Short-Name: ldap
 Long-Name: LDAP Plugin
 Url: https://github.com/jenkinsci/ldap-plugin
 Compatible-Since-Version: 1.16
 Minimum-Java-Version: 1.8
-Plugin-Version: 1.24
+Plugin-Version: 1.22
 Hudson-Version: 2.60.3
 Jenkins-Version: 2.60.3
 Plugin-Dependencies: mailer:1.20

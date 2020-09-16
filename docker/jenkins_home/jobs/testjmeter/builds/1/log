@@ -1,0 +1,28 @@
+Started by user [8mha:////4GwA5J8YCLKpu2bXZKTiLv6QSMen6cUc48IAQsSyKU0aAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/testjmeter
+[testjmeter] $ /bin/sh -xe /tmp/jenkins4577143967581886194.sh
++ java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b08)
+OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
++ cd /var/apache-jmeter/bin
++ /var/apache-jmeter/bin/jmeter -n -X -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0
+Sep 16, 2020 10:28:38 AM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+Creating summariser <summary>
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx
+Starting standalone test @ Wed Sep 16 10:28:39 UTC 2020 (1600252119132)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+DataHunter Selenium Test Plan:  Mark59 properties directly set within the test plan : 
+mark59.screenshot.directory            : /var/Mark59_Runs/Jmeter_ScreenshotLogs/DataHunter
+------------------------------------------------------------
+OS property has been set to : LINUX
+summary +      8 in 00:00:55 =    0.1/s Avg: 18065 Min:  3985 Max: 32683 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      6 in 00:00:29 =    0.2/s Avg: 21167 Min:  3988 Max: 35946 Err:     0 (0.00%) Active: 2 Started: 5 Finished: 3
+summary =     14 in 00:01:24 =    0.2/s Avg: 19394 Min:  3985 Max: 35946 Err:     0 (0.00%)
+summary +      1 in 00:00:14 =    0.1/s Avg: 31833 Min: 31833 Max: 31833 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =     15 in 00:01:38 =    0.2/s Avg: 20224 Min:  3985 Max: 35946 Err:     0 (0.00%)
+Tidying up ...    @ Wed Sep 16 10:30:19 UTC 2020 (1600252219215)
+... end of run
+Finished: SUCCESS
