@@ -7,14 +7,14 @@ Extension-Name: mailer
 Specification-Title: This plugin allows you to configure email notific
  ations for build results
 Implementation-Title: mailer
-Implementation-Version: 1.32
+Implementation-Version: 1.32.1
 Plugin-Class: hudson.tasks.PluginImpl
 Group-Id: org.jenkins-ci.plugins
 Short-Name: mailer
 Long-Name: Jenkins Mailer Plugin
 Url: https://github.com/jenkinsci/mailer-plugin
 Minimum-Java-Version: 1.8
-Plugin-Version: 1.32
+Plugin-Version: 1.32.1
 Hudson-Version: 2.150.1
 Jenkins-Version: 2.150.1
 Plugin-Dependencies: display-url-api:2.3.1

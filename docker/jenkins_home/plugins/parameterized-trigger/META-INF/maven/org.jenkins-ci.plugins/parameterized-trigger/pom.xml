@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>parameterized-trigger</artifactId>
-  <version>2.38</version>
+  <version>2.39</version>
   <packaging>hpi</packaging>
   <name>Jenkins Parameterized Trigger plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -20,7 +20,7 @@
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/parameterized-trigger-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/parameterized-trigger-plugin.git</developerConnection>
-    <tag>parameterized-trigger-2.38</tag>
+    <tag>parameterized-trigger-2.39</tag>
     <url>https://github.com/jenkinsci/parameterized-trigger-plugin</url>
   </scm>
   <distributionManagement>
