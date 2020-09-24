@@ -1,0 +1,24 @@
+Started by user [8mha:////4GwA5J8YCLKpu2bXZKTiLv6QSMen6cUc48IAQsSyKU0aAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/testjmeter
+[testjmeter] $ /bin/sh -xe /tmp/jenkins3980491808795398176.sh
++ java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b08)
+OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
++ cd /var/apache-jmeter/bin
++ /var/apache-jmeter/bin/jmeter -n -X -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0
+Creating summariser <summary>
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx
+Starting standalone test @ Thu Sep 24 05:33:10 UTC 2020 (1600925590913)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+DataHunter Selenium Test Plan:  Mark59 properties directly set within the test plan : 
+mark59.screenshot.directory            : /var/Mark59_Runs/Jmeter_ScreenshotLogs/DataHunter
+------------------------------------------------------------
+OS property has been set to : LINUX
+summary +      7 in 00:00:49 =    0.1/s Avg: 20245 Min:  5027 Max: 41926 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      7 in 00:00:45 =    0.2/s Avg: 27123 Min:  6399 Max: 41404 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =     14 in 00:01:33 =    0.1/s Avg: 23684 Min:  5027 Max: 41926 Err:     0 (0.00%)
+Tidying up ...    @ Thu Sep 24 05:34:45 UTC 2020 (1600925685297)
+... end of run
+Finished: SUCCESS

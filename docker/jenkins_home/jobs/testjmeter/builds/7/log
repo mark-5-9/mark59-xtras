@@ -1,0 +1,27 @@
+Started by user [8mha:////4GwA5J8YCLKpu2bXZKTiLv6QSMen6cUc48IAQsSyKU0aAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/testjmeter
+[testjmeter] $ /bin/sh -xe /tmp/jenkins2202547299528610271.sh
++ java -version
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b08)
+OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
++ cd /var/apache-jmeter/bin
++ /var/apache-jmeter/bin/jmeter -n -X -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0
+Creating summariser <summary>
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx
+Starting standalone test @ Thu Sep 24 06:57:18 UTC 2020 (1600930638188)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+DataHunter Selenium Test Plan:  Mark59 properties directly set within the test plan : 
+mark59.screenshot.directory            : /var/Mark59_Runs/Jmeter_ScreenshotLogs/DataHunter
+------------------------------------------------------------
+OS property has been set to : LINUX
+summary +      6 in 00:00:47 =    0.1/s Avg: 14997 Min:  3651 Max: 30863 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      5 in 00:00:25 =    0.2/s Avg: 21915 Min:  3974 Max: 35118 Err:     0 (0.00%) Active: 4 Started: 5 Finished: 1
+summary =     11 in 00:01:11 =    0.2/s Avg: 18141 Min:  3651 Max: 35118 Err:     0 (0.00%)
+summary +      4 in 00:00:32 =    0.1/s Avg: 25168 Min: 17466 Max: 32062 Err:     0 (0.00%) Active: 1 Started: 5 Finished: 4
+summary =     15 in 00:01:44 =    0.1/s Avg: 20015 Min:  3651 Max: 35118 Err:     0 (0.00%)
+summary =     15 in 00:01:44 =    0.1/s Avg: 20015 Min:  3651 Max: 35118 Err:     0 (0.00%)
+Tidying up ...    @ Thu Sep 24 06:59:02 UTC 2020 (1600930742837)
+... end of run
+Finished: SUCCESS
