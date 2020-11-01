@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/color.css" />
+	</head>
+	<body>
+<style>
+  body {margin-left:.5em; }
+  pre {font-family: Consolas, "Courier New"; word-wrap: break-word; }
+  pre span {word-wrap: break-word; } 
+</style>
+<pre>Started by upstream project "DataHunter_Execute" build number 3
+originally caused by:
+ Started by upstream project "DataHunter_Check" build number 3
+ originally caused by:
+  Started by user admin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/DataHunter_Result
+[DataHunter_Result] $ /bin/sh /tmp/jenkins4332614553223695921.sh
+parmExecuteScriptVerificationPassed=true
+parmExecuteResult=Execution_OK
+Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test
+load results into graphical comparative analysis tooling
+Starting Runcheck .. (version 3.0.0)
+
+Runcheck executing using the following arguments 
+------------------------------------------------ 
+ application    : DataHunter
+ input          : /var/Mark59_Runs/Jmeter_Results/DataHunter
+ database       : h2tcpclient
+ reference      : No argument passed. (a reference will be generated)
+ tool           : Jmeter
+ dbserver       : metrics
+ dbPort         : 9092
+ dbSchema       : metricsdb
+ dbxtraurlparms : 
+ dbUsername     : admin
+ eXcludestart   : 0 (mins)
+ captureperiod  : All (mins)
+ timeZone       : Etc/UTC
+------------------------------------------------   
+
+2020-10-21 02:11:12.664  INFO 1438 --- [           main] c.m.metricsruncheck.ApplicationEntry     : Starting ApplicationEntry v3.0.1 on 5f1699b9d2f0 with PID 1438 (/var/mark59/metricsRuncheck/target/metricsRuncheck.jar started by jenkins in /var/mark59/metricsRuncheck/target)
+2020-10-21 02:11:12.668  INFO 1438 --- [           main] c.m.metricsruncheck.ApplicationEntry     : The following profiles are active: h2tcpclient
+2020-10-21 02:11:13.690  INFO 1438 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-21 02:11:13.789  INFO 1438 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-21 02:11:14.402  INFO 1438 --- [           main] c.m.metricsruncheck.ApplicationEntry     : Started ApplicationEntry in 2.275 seconds (JVM running for 2.767)
+Spring configuration complete, h2tcpclient database in use.
+
+***************************************************************************************
+*   The use of a H2 database is intended to assist in tutorials and 'quick start'.    *
+*   Please use a MySQL or PostgreSQL database for more formal work.                   *
+*                                                                                     *
+***************************************************************************************
+
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Wed Oct 21 02:11:14 UTC 2020
+^
+
+   DataHunterTestResults.csv  file uploaded at Wed Oct 21 02:11:14 UTC 2020 :
+        368 file lines processed
+        352 transaction samples created
+        took 0 secs
+
+____________________________________
+352 Total samples written
+ 
+
+Run start time set as 202010210209  [ Wed Oct 21 02:09:31 UTC 2020, Timestamp 1603246171171 ], with a duration of 1 mins,  period of 20201021_020931 - 20201021_021104
+Epoch Range (msec)  [ 1603246171171 : 1603246264446 ]
+
+Run reference has been set as  20201021_020931
+deleteRun sql: delete from RUNS where APPLICATION='DataHunter' and RUN_TIME='202010210209'
+extractTransactionResponsesSummary sql: starts at Wed Oct 21 02:11:14 UTC 2020
+extractTransactionResponsesSummary sql: completed Wed Oct 21 02:11:14 UTC 2020.   took 0 secs
+Runcheck:  No transactionalSLA has been marked as failed, as recorded on the SLA Reference Database
+Runcheck:  No metrics SLA has been marked as failed, as recorded on the SLA Metrics Reference Database
+Runcheck completed.
+2020-10-21 02:11:14.836  INFO 1438 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-21 02:11:14.843  INFO 1438 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+convert xml file to csv
+Result Files Converter starting .. (v3.0.0) 
+cwd = /var/mark59/resultFilesConverter/target
+
+JmterResultsConverter  executing using the following arguments 
+-------------------------------------------------------------- 
+ inputdirectory        : /var/Mark59_Runs/Jmeter_Results/DataHunter
+ outputdirectoy        : /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED
+ outputFilename        : DataHunterTestResults_converted.csv
+ errortransactions     : No
+ eXcludeResultsWithSub : True
+ metricsfile           : SplitByDataType
+-------------------------------------------------------------- 
+
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_CPU_UTIL.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_DATAPOINT.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_MEMORY.csv
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Wed Oct 21 02:11:14 UTC 2020
+^
+
+   DataHunterTestResults.csv processing completed  at Wed Oct 21 02:11:14 UTC 2020 :
+        368 file lines processed
+        352 transaction samples loaded
+        took 0 secs
+
+
+   MERGED bypassed
+____________________________________
+352 Total samples written
+ 
+
+Result Files Converter completed.
+run jmeter report generation
+An error occurred: Cannot read test results file : /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_METRICS.csv
+chmod: cannot access '/var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_METRICS.csv': No such file or directory
+/tmp/jenkins4332614553223695921.sh: 81: /tmp/jenkins4332614553223695921.sh: BEGINMAILScenario_Run_ok: not found
+</pre>	</body>
+</html>

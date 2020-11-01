@@ -1,0 +1,32 @@
+Started by user [8mha:////4CtB8jC9kLs/QI9dTXtKBMt5oG64QCmUvc0S4EeTYJtbAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check
+[DataHunterDistributed_Check] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins5201710669560394378.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationCheck.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>REM Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>break1>C:\temp\DataHunterResults.xml 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>C:  
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Check>cd C:\apache-jmeter\bin 
+
+C:\apache-jmeter\bin>jmeter -n -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx -l C:\temp\DataHunterResults.xml -JDuration=20 -JUsers=1    -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://MASTERPC:8081     
+Creating summariser <summary>
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Starting the test @ Wed Dec 18 13:25:56 AEDT 2019 (1576635956738)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Warning: Nashorn engine is planned to be removed from a future JDK release
+summary +      1 in 00:00:03 =    0.3/s Avg:  3434 Min:  3434 Max:  3434 Err:     0 (0.00%) Active: 3 Started: 3 Finished: 0
+summary +      5 in 00:00:34 =    0.1/s Avg: 10211 Min:  2742 Max: 31257 Err:     0 (0.00%) Active: 3 Started: 5 Finished: 2
+summary =      6 in 00:00:37 =    0.2/s Avg:  9082 Min:  2742 Max: 31257 Err:     0 (0.00%)
+summary +      2 in 00:00:09 =    0.2/s Avg: 19059 Min:  6868 Max: 31250 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =      8 in 00:00:46 =    0.2/s Avg: 11576 Min:  2742 Max: 31257 Err:     0 (0.00%)
+Tidying up ...    @ Wed Dec 18 13:26:42 AEDT 2019 (1576636002934)
+... end of run
+[8mha:////4Hzw5mnxjsir2v8BiIQFQCnBsewUw45m13r3aOOB+FB3AAAAth+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz9EgZT/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFIbK/cVKBkcGpRWWZyarE+AJYdIwHqAAAA[0mDataHunterDistributed_DistributedJmeterServices is disabled. Triggering skipped
+Finished: SUCCESS

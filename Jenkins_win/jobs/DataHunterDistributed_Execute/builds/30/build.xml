@@ -1,0 +1,350 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.BooleanParameterValue>
+          <name>ScriptVerificationPassed</name>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>RunCI</name>
+          <description></description>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>Application</name>
+          <description></description>
+          <value>DataHunterDistributed</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>JmeterHome</name>
+          <description></description>
+          <value>C:\apache-jmeter</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>JmeterTestPlan</name>
+          <description></description>
+          <value>C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>TestResultsFileName</name>
+          <description></description>
+          <value>DataHunterDistributedTestResults.csv</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>DistributedIPsList</name>
+          <description>(optional) For Distributed Tests Only. The list of IPs to run the Test Plan.  Include the -R parameter. Sample Usage: &lt;br&gt; 
+&lt;b&gt;&lt;code&gt;-R 10.111.222.150,10.111.333.80&lt;/code&gt;&lt;/b&gt;</description>
+          <value> -R 10.111.11.111,10.222.22.22</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>Duration</name>
+          <description>Optional Duration parameter (seconds)&lt;br&gt;
+Enter using the full format for the &lt;b&gt;Duration&lt;/b&gt; jmeter parameter.  For example &lt;b&gt;&lt;code&gt;-JDuration=3600&lt;/code&gt;&lt;/b&gt;</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam1</name>
+          <description>ExtraParam1 - ExtraParam4 Available&lt;br&gt;
+Additional optional arguments that can be passed to Jmeter. For example, if your test plans has a parameter &apos;ForceTxnFailPercent&apos;  
+(sample usage :  &lt;b&gt;&lt;code&gt;${__P(ForceTxnFailPercent,25)}&lt;/code&gt;&lt;/b&gt; ), then a value can be passed from here such as:  &lt;br&gt;
+&lt;b&gt;&lt;code&gt;-JForceTxnFailPercent=50&lt;/code&gt;&lt;/b&gt;</description>
+          <value>-GForceTxnFailPercent=0</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam2</name>
+          <description></description>
+          <value>-GDataHunterUrlHostPort=http://MASTERPC:8081</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam3</name>
+          <description></description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam4</name>
+          <description></description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>CopyResults</name>
+          <description>Set to true (tick) if the test resutls are to be copied (to the location specified in the &lt;b&gt;CopyResutsDirectory&lt;/b&gt; parameter below</description>
+          <value>false</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>CopyResutsDirectory</name>
+          <description>(optional) If the results are to be copied (eg, to another server), specify directory here.</description>
+          <value>C:\Temp</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SetPath</name>
+          <description>Set Path required to invoke commands</description>
+          <value>${JAVA_HOME}\bin;C:\Windows\System32;C:\windows\system32\wbem</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>ScriptVerificationPassed</string>
+        <string>RunCI</string>
+        <string>Application</string>
+        <string>JmeterHome</string>
+        <string>JmeterTestPlan</string>
+        <string>TestResultsFileName</string>
+        <string>DistributedIPsList</string>
+        <string>Duration</string>
+        <string>ExtraParam1</string>
+        <string>ExtraParam2</string>
+        <string>ExtraParam3</string>
+        <string>ExtraParam4</string>
+        <string>CopyResults</string>
+        <string>CopyResutsDirectory</string>
+        <string>SetPath</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UpstreamCause>
+            <upstreamProject>DataHunterDistributed_DistributedJmeterServices</upstreamProject>
+            <upstreamUrl>job/DataHunterDistributed_DistributedJmeterServices/</upstreamUrl>
+            <upstreamBuild>34</upstreamBuild>
+            <upstreamCauses>
+              <hudson.model.Cause_-UserIdCause>
+                <userId>admin</userId>
+              </hudson.model.Cause_-UserIdCause>
+            </upstreamCauses>
+          </hudson.model.Cause_-UpstreamCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.logparser.LogParserAction plugin="log-parser@2.1">
+      <build class="build" reference="../../.."/>
+      <result>
+        <totalErrors>0</totalErrors>
+        <totalWarnings>0</totalWarnings>
+        <totalInfos>0</totalInfos>
+        <totalDebugs>0</totalDebugs>
+        <totalCountsByExtraTag/>
+        <htmlLogFile>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30/log_content.html</htmlLogFile>
+        <errorLinksFile>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30/logerrorLinks.html</errorLinksFile>
+        <warningLinksFile>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30/logwarningLinks.html</warningLinksFile>
+        <infoLinksFile>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30/loginfoLinks.html</infoLinksFile>
+        <debugLinksFile>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30/logdebugLinks.html</debugLinksFile>
+        <linkedFilesByExtraTag/>
+        <extraTags/>
+        <parsedLogURL>job/DataHunterDistributed_Execute/30/parsed_console/log.html</parsedLogURL>
+        <htmlLogPath>C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Execute\builds\30</htmlLogPath>
+      </result>
+    </hudson.plugins.logparser.LogParserAction>
+    <hudson.plugins.parameterizedtrigger.CapturedEnvironmentAction plugin="parameterized-trigger@2.36">
+      <env serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+          </default>
+          <int>90</int>
+          <string>=C:</string>
+          <string>c:\_Jenkins\JENKINS_HOME</string>
+          <string>=ExitCode</string>
+          <string>00000082</string>
+          <string>ADAPTIVACLIENT</string>
+          <string>C:\Program Files (x86)\Adaptiva\AdaptivaClient</string>
+          <string>ALLUSERSPROFILE</string>
+          <string>C:\ProgramData</string>
+          <string>ANALYSIS_PATH</string>
+          <string>C:\Program Files (x86)\HPE\LoadRunner\</string>
+          <string>APPDATA</string>
+          <string>C:\Users\SUSER1\AppData\Roaming</string>
+          <string>Application</string>
+          <string>DataHunterDistributed</string>
+          <string>BUILD_DISPLAY_NAME</string>
+          <string>#30</string>
+          <string>BUILD_ID</string>
+          <string>30</string>
+          <string>BUILD_NUMBER</string>
+          <string>30</string>
+          <string>BUILD_TAG</string>
+          <string>jenkins-DataHunterDistributed_Execute-30</string>
+          <string>BUILD_URL</string>
+          <string>http://localhost:8082/job/DataHunterDistributed_Execute/30/</string>
+          <string>CLASSPATH</string>
+          <string></string>
+          <string>CommonProgramFiles</string>
+          <string>C:\Program Files\Common Files</string>
+          <string>CommonProgramFiles(x86)</string>
+          <string>C:\Program Files (x86)\Common Files</string>
+          <string>CommonProgramW6432</string>
+          <string>C:\Program Files\Common Files</string>
+          <string>COMPUTERNAME</string>
+          <string>MASTERPC</string>
+          <string>ComSpec</string>
+          <string>C:\WINDOWS\system32\cmd.exe</string>
+          <string>CopyResults</string>
+          <string>false</string>
+          <string>CopyResutsDirectory</string>
+          <string>C:\Temp</string>
+          <string>DistributedIPsList</string>
+          <string> -R 10.111.11.111,10.222.22.22</string>
+          <string>DriverData</string>
+          <string>C:\Windows\System32\Drivers\DriverData</string>
+          <string>Duration</string>
+          <string></string>
+          <string>EXECUTOR_NUMBER</string>
+          <string>1</string>
+          <string>ExtraParam1</string>
+          <string>-GForceTxnFailPercent=0</string>
+          <string>ExtraParam2</string>
+          <string>-GDataHunterUrlHostPort=http://MASTERPC:8081</string>
+          <string>ExtraParam3</string>
+          <string></string>
+          <string>ExtraParam4</string>
+          <string></string>
+          <string>HOMEDRIVE</string>
+          <string>H:</string>
+          <string>HOMEPATH</string>
+          <string>\</string>
+          <string>HOMESHARE</string>
+          <string>\\MELFILER1\ZUSERS\SUSER1</string>
+          <string>http_proxy</string>
+          <string>http://localhost:3128</string>
+          <string>https_proxy</string>
+          <string>http://localhost:3128</string>
+          <string>HUDSON_HOME</string>
+          <string>C:\_Jenkins\JENKINS_HOME</string>
+          <string>HUDSON_SERVER_COOKIE</string>
+          <string>df3a1422364cf39b</string>
+          <string>HUDSON_URL</string>
+          <string>http://localhost:8082/</string>
+          <string>ICU_DATA</string>
+          <string>C:\Windows\system32\</string>
+          <string>JAVA_HOME</string>
+          <string>C:\Program Files\Java\jdk-11</string>
+          <string>JENKINS_HOME</string>
+          <string>C:\_Jenkins\JENKINS_HOME</string>
+          <string>JENKINS_SERVER_COOKIE</string>
+          <string>df3a1422364cf39b</string>
+          <string>JENKINS_URL</string>
+          <string>http://localhost:8082/</string>
+          <string>JmeterHome</string>
+          <string>C:\apache-jmeter</string>
+          <string>JmeterTestPlan</string>
+          <string>C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx</string>
+          <string>JOB_BASE_NAME</string>
+          <string>DataHunterDistributed_Execute</string>
+          <string>JOB_DISPLAY_URL</string>
+          <string>http://localhost:8082/job/DataHunterDistributed_Execute/display/redirect</string>
+          <string>JOB_NAME</string>
+          <string>DataHunterDistributed_Execute</string>
+          <string>JOB_URL</string>
+          <string>http://localhost:8082/job/DataHunterDistributed_Execute/</string>
+          <string>LG_PATH</string>
+          <string>C:\Program Files (x86)\HPE\LoadRunner\</string>
+          <string>LOCALAPPDATA</string>
+          <string>C:\Users\SUSER1\AppData\Local</string>
+          <string>LOGONSERVER</string>
+          <string>\\SDC1NS003</string>
+          <string>LR_PATH</string>
+          <string>C:\Program Files (x86)\HPE\LoadRunner\</string>
+          <string>MAVEN_HOME</string>
+          <string>C:\apache-maven-3.5.3</string>
+          <string>NODE_LABELS</string>
+          <string>master</string>
+          <string>NODE_NAME</string>
+          <string>master</string>
+          <string>NUMBER_OF_PROCESSORS</string>
+          <string>8</string>
+          <string>OneDrive</string>
+          <string>C:\Users\ibuild\OneDrive</string>
+          <string>OS</string>
+          <string>Windows_NT</string>
+          <string>Path</string>
+          <string>%JAVA_HOME%\bin;%MAVEN_HOME%\bin;%PATH%</string>
+          <string>PATHEXT</string>
+          <string>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</string>
+          <string>PROCESSOR_ARCHITECTURE</string>
+          <string>AMD64</string>
+          <string>PROCESSOR_IDENTIFIER</string>
+          <string>Intel64 Family 6 Model 158 Stepping 9, GenuineIntel</string>
+          <string>PROCESSOR_LEVEL</string>
+          <string>6</string>
+          <string>PROCESSOR_REVISION</string>
+          <string>9e09</string>
+          <string>ProgramData</string>
+          <string>C:\ProgramData</string>
+          <string>ProgramFiles</string>
+          <string>C:\Program Files</string>
+          <string>ProgramFiles(x86)</string>
+          <string>C:\Program Files (x86)</string>
+          <string>ProgramW6432</string>
+          <string>C:\Program Files</string>
+          <string>PROMPT</string>
+          <string>$P$G</string>
+          <string>PSModulePath</string>
+          <string>C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Adaptiva\AdaptivaClient\data\PSModules</string>
+          <string>PUBLIC</string>
+          <string>C:\Users\Public</string>
+          <string>RUN_CHANGES_DISPLAY_URL</string>
+          <string>http://localhost:8082/job/DataHunterDistributed_Execute/30/display/redirect?page=changes</string>
+          <string>RUN_DISPLAY_URL</string>
+          <string>http://localhost:8082/job/DataHunterDistributed_Execute/30/display/redirect</string>
+          <string>RunCI</string>
+          <string>true</string>
+          <string>ScriptVerificationPassed</string>
+          <string>true</string>
+          <string>SetPath</string>
+          <string>C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem</string>
+          <string>SystemDrive</string>
+          <string>C:</string>
+          <string>SystemRoot</string>
+          <string>C:\WINDOWS</string>
+          <string>TEMP</string>
+          <string>C:\Users\SUSER1\AppData\Local\Temp</string>
+          <string>TestResultsFileName</string>
+          <string>DataHunterDistributedTestResults.csv</string>
+          <string>TMP</string>
+          <string>C:\Users\SUSER1\AppData\Local\Temp</string>
+          <string>UATDATA</string>
+          <string>C:\WINDOWS\CCM\UATData\D9F8C395-CAB8-491d-B8AC-179A1FE1BE77</string>
+          <string>USERDNSDOMAIN</string>
+          <string>MYCORP.CORP</string>
+          <string>USERDOMAIN</string>
+          <string>MYCORP</string>
+          <string>USERDOMAIN_ROAMINGPROFILE</string>
+          <string>MYCORP</string>
+          <string>USERNAME</string>
+          <string>SUSER1</string>
+          <string>USERPROFILE</string>
+          <string>C:\Users\SUSER1</string>
+          <string>VBOX_MSI_INSTALL_PATH</string>
+          <string>C:\Program Files\Oracle\VirtualBox\</string>
+          <string>VUGEN_PATH</string>
+          <string>C:\Program Files (x86)\HPE\LoadRunner\</string>
+          <string>windir</string>
+          <string>C:\WINDOWS</string>
+          <string>WORKSPACE</string>
+          <string>C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute</string>
+        </tree-map>
+        <hudson.EnvVars>
+          <default>
+            <platform>WINDOWS</platform>
+          </default>
+        </hudson.EnvVars>
+      </env>
+    </hudson.plugins.parameterizedtrigger.CapturedEnvironmentAction>
+  </actions>
+  <queueId>78</queueId>
+  <timestamp>1576643083794</timestamp>
+  <startTime>1576643083804</startTime>
+  <result>SUCCESS</result>
+  <duration>100605</duration>
+  <charset>windows-1252</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Execute</workspace>
+  <hudsonVersion>2.190.3</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="com.google.common.collect.EmptyImmutableSortedSet"/>
+</build>

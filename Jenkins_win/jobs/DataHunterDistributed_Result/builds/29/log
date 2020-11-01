@@ -1,0 +1,157 @@
+Started by upstream project "[8mha:////4OPYzjtOyqwx39MKDwpkDdA0bJr7ew7RVxcMFeYLGWCiAAAArR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzZEgZl/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfGuFanJQIY+AKlp6nbYAAAA[0mDataHunterDistributed_Execute" build number [8mha:////4Pbx3slWVBbnfWK7XhWdwZGrmtPSuEdZ0AKLPWiF/aQ1AAAArx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgZV/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfGuFanJQIa+sQEAq7JswdoAAAA=[0m30
+originally caused by:
+ Started by upstream project "[8mha:////4Hzw5mnxjsir2v8BiIQFQCnBsewUw45m13r3aOOB+FB3AAAAth+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz9EgZT/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFIbK/cVKBkcGpRWWZyarE+AJYdIwHqAAAA[0mDataHunterDistributed_DistributedJmeterServices" build number [8mha:////4J0ZEuVjlHDjBjXnaLLg6nnc8yNbADpBDrfRBypMMwN/AAAAuB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgZz/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfFIbK/cVKBkcGpRWWZyarG+sQkAZlNUROwAAAA=[0m34
+ originally caused by:
+  Started by user [8mha:////4CtB8jC9kLs/QI9dTXtKBMt5oG64QCmUvc0S4EeTYJtbAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result
+[DataHunterDistributed_Result] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins16862563353898003130.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationResult.bat 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>C:
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>echo parmExecuteScriptVerificationPassed=true 
+parmExecuteScriptVerificationPassed=true
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>echo parmExecuteResult=Execution_OK 
+parmExecuteResult=Execution_OK
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>set PATH=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>echo PATH       is C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+PATH       is C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>java -version 
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment 18.9 (build 11+28)
+OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_Result>if "Execution_OK" EQU "Execution_OK" (
+echo "load results into graphical comparative analysis tooling"   
+ cd C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target  
+ java -jar metricsRuncheck.jar -a DataHunterDistributed -i C:\Jmeter_Results\DataHunterDistributed -h localhost  -p 3306 -t JMETER   -r "<a href='http://localhost:8082/job/DataHunterDistributed_Result/29/HTML_Report'>run 29</a>"  
+ echo "convert xml file to csv"   
+ if exist C:\Jmeter_Results\DataHunterDistributed\MERGED\ RD /S /Q C:\Jmeter_Results\DataHunterDistributed\MERGED	  
+ mkdir C:\Jmeter_Results\DataHunterDistributed\MERGED\   
+ cd C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target  
+ java -jar resultFilesConverter.jar -iC:\Jmeter_Results\DataHunterDistributed -fDataHunterDistributedTestResults_converted.csv -mSplitByDataType -eNo -xTrue  
+ echo "run jmeter report(s) generation"       
+ rmdir /s /q C:\htmlreport\DataHunterDistributed  
+ md C:\htmlreport\DataHunterDistributed  
+ rmdir /s /q C:\htmlreport\DataHunterDistributedCpuUtil  
+ md C:\htmlreport\DataHunterDistributedCpuUtil  
+ rmdir /s /q C:\htmlreport\DataHunterDistributedDatapoint  
+ md C:\htmlreport\DataHunterDistributedDatapoint  
+ rmdir /s /q C:\htmlreport\DataHunterDistributedMemory  
+ md C:\htmlreport\DataHunterDistributedMemory  
+ rmdir /s /q C:\htmlreport\DataHunterDistributedMetrics  
+ md C:\htmlreport\DataHunterDistributedMetrics  
+ cd C:\apache-jmeter\bin  
+ jmeter -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted.csv -o C:\htmlreport\DataHunterDistributed  
+ jmeter -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_CPU_UTIL.csv -o C:\htmlreport\DataHunterDistributedCpuUtil	  
+ jmeter -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_DATAPOINT.csv -o C:\htmlreport\DataHunterDistributedDatapoint	  
+ jmeter -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_MEMORY.csv -o C:\htmlreport\DataHunterDistributedMemory	  
+ jmeter -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_METRICS.csv -o C:\htmlreport\DataHunterDistributedMetrics  
+ TIME /T 
+) 
+"load results into graphical comparative analysis tooling" 
+Starting runcheck .. (v2.1.1) 
+
+Runcheck executing using the following arguments 
+------------------------------------------------ 
+ application    : DataHunterDistributed
+ input          : C:\Jmeter_Results\DataHunterDistributed
+ reference      : <a href='http://localhost:8082/job/DataHunterDistributed_Result/29/HTML_Report'>run 29</a>
+ tool           : JMETER
+ mysqlserver    : localhost
+ mysqlPort      : 3306
+ dbUsername     : admin
+ eXcludestart   : 0 (mins)
+ captureperiod  : All (mins)
+ timeZone       : Australia/Sydney
+------------------------------------------------   
+
+2019-12-18 15:26:35.803  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : Starting Runcheck v2.1.1 on MASTERPC with PID 28408 (C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target\metricsRuncheck.jar started by SUSER1 in C:\gitrepo\mark-5-9\mark59\metricsRuncheck\target)
+2019-12-18 15:26:35.803  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : No active profile set, falling back to default profiles: default
+2019-12-18 15:26:36.504  INFO 28408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-12-18 15:26:36.521  INFO 28408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-12-18 15:26:37.245  INFO 28408 --- [           main] com.mark59.metricsruncheck.Runcheck      : Started Runcheck in 1.872 seconds (JVM running for 2.478)
+2019-12-18 15:26:37.247  INFO 28408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-12-18 15:26:37.438  INFO 28408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+
+
+Processing CSV formatted Jmeter Results File DataHunterDistributedTestResults.csv at Wed Dec 18 15:26:37 AEDT 2019
+^
+
+   DataHunterDistributedTestResults.csv processing completed  at Wed Dec 18 15:26:37 AEDT 2019 :
+        515 file lines processed
+        486 transaction samples loaded
+        took 0 secs
+
+____________________________________
+486 Total samples written
+ 
+
+Run start time set as 201912181524  [ Wed Dec 18 15:24:53 AEDT 2019, Timestamp 1576643093565 ], with a duration of 1 mins,  period of 20191218_152453 - 20191218_152615
+Epoch Range (msec)  [ 1576643093565 : 1576643175814 ]
+
+deleteRun sql: delete from runs where APPLICATION='DataHunterDistributed' and RUN_TIME='201912181524'
+extractTransactionResponsesSummary sql: starts at Wed Dec 18 15:26:37 AEDT 2019
+extractTransactionResponsesSummary sql: completed Wed Dec 18 15:26:37 AEDT 2019.   took 0 secs
+          SLA Generic KEY not found (ie, only exact transaction matches will be used)
+Runcheck:  No transactionalSLA has been marked as failed, as recorded on the SLA Reference Database
+Runcheck: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL Average on mylocal.  Range is set as 5.0 to 60.0, actual was 68.0
+Runcheck: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL PercentOver90 on mylocal.  Range is set as 0.0 to 10.0, actual was 16.67
+runcheck completed.
+2019-12-18 15:26:37.757  INFO 28408 --- [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-12-18 15:26:37.757  INFO 28408 --- [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+"convert xml file to csv" 
+Result Files Converter starting .. (v2.1.1) 
+cwd = C:\gitrepo\mark-5-9\mark59\resultFilesConverter\target
+
+JmterResultsConverter  executing using the following arguments 
+-------------------------------------------------------------- 
+ inputdirectory        : C:\Jmeter_Results\DataHunterDistributed
+ outputdirectoy        : C:\Jmeter_Results\DataHunterDistributed\MERGED
+ outputFilename        : DataHunterDistributedTestResults_converted.csv
+ errortransactions     : No
+ eXcludeResultsWithSub : True
+ metricsfile           : SplitByDataType
+-------------------------------------------------------------- 
+
+initializeCsvWriter C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted.csv
+initializeCsvWriter C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_CPU_UTIL.csv
+initializeCsvWriter C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_DATAPOINT.csv
+initializeCsvWriter C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_MEMORY.csv
+
+
+Processing CSV formatted Jmeter Results File DataHunterDistributedTestResults.csv at Wed Dec 18 15:26:38 AEDT 2019
+^
+
+   DataHunterDistributedTestResults.csv processing completed  at Wed Dec 18 15:26:38 AEDT 2019 :
+        515 file lines processed
+        486 transaction samples loaded
+        took 0 secs
+
+
+   MERGED bypassed
+____________________________________
+486 Total samples written
+ 
+
+Result Files Converter completed.
+"run jmeter report(s) generation"     
+An error occurred: Cannot read test results file : C:\Jmeter_Results\DataHunterDistributed\MERGED\DataHunterDistributedTestResults_converted_METRICS.csv
+errorlevel=1
+Press any key to continue . . . 
+03:26 PM
+Build step 'Console output (build log) parsing' changed build result to UNSTABLE
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDistributed to C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\Transactions_20Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDistributedCpuUtil to C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\CPU_20Utilizations_20Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDistributedDatapoint to C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\Data_20Points_20Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDistributedMemory to C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\Memory_20Metrics_20Report
+[htmlpublisher] Archiving at BUILD level C:\htmlreport\DataHunterDistributedMetrics to C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\All_20Metrics_20Report
+Error: IOException occured writing report to file C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\All_20Metrics_20Report\htmlpublisher-wrapper.html to archiveDir:DataHunterDistributedMetrics, error:C:\_Jenkins\JENKINS_HOME\jobs\DataHunterDistributed_Result\builds\29\htmlreports\All_20Metrics_20Report\htmlpublisher-wrapper.html (The system cannot find the path specified)
+Finished: UNSTABLE

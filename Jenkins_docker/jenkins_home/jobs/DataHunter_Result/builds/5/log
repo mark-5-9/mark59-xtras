@@ -1,0 +1,123 @@
+Started by upstream project "[8mha:////4Fu4buGeGxIKnpUwzBCI3lOYvH3GYzQsKLWLp2fpNCVLAAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyhEgYJ/az8JH2XxJJEj9K8ktSieNeK1OTSklR9AL7o8gHNAAAA[0mDataHunter_Execute" build number [8mha:////4BN5drCeBzRz/+V7O8iSrVV1ywl1v7MOJQM5JO+WayM8AAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBkn9rPwkfZfEkkSP0ryS1KJ414rU5NKSVH1TADMHtGzOAAAA[0m5
+originally caused by:
+ Started by upstream project "[8mha:////4ORzlc/A2fmnk3TMV5nZiZXPnwe42hE67JR2X8fcVVslAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyBEgYx/az8JH2XxJJEj9K8ktSieOeM1ORsfQB8LepDywAAAA==[0mDataHunter_Check" build number [8mha:////4G4W/5lKd3rXhL7e+Ce2wK+NGZJvXzAf3/dd/Euj1n9mAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBnH9rPwkfZfEkkSP0ryS1KJ454zU5Gx9UwCnKZxszAAAAA==[0m5
+ originally caused by:
+  Started by user [8mha:////4GwA5J8YCLKpu2bXZKTiLv6QSMen6cUc48IAQsSyKU0aAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/DataHunter_Result
+[DataHunter_Result] $ /bin/sh /tmp/jenkins7606755094308111090.sh
+parmExecuteScriptVerificationPassed=true
+parmExecuteResult=Execution_OK
+Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test
+load results into graphical comparative analysis tooling
+Starting Runcheck .. (version 3.0.0)
+
+Runcheck executing using the following arguments 
+------------------------------------------------ 
+ application    : DataHunter
+ input          : /var/Mark59_Runs/Jmeter_Results/DataHunter
+ database       : h2tcpclient
+ reference      : No argument passed. (a reference will be generated)
+ tool           : Jmeter
+ dbserver       : metrics
+ dbPort         : 9092
+ dbSchema       : metricsdb
+ dbxtraurlparms : 
+ dbUsername     : admin
+ eXcludestart   : 0 (mins)
+ captureperiod  : All (mins)
+ timeZone       : Etc/UTC
+------------------------------------------------   
+
+2020-10-21 04:14:15.776  INFO 4693 --- [           main] c.m.metricsruncheck.ApplicationEntry     : Starting ApplicationEntry v3.0.1 on 5f1699b9d2f0 with PID 4693 (/var/mark59/metricsRuncheck/target/metricsRuncheck.jar started by jenkins in /var/mark59/metricsRuncheck/target)
+2020-10-21 04:14:15.783  INFO 4693 --- [           main] c.m.metricsruncheck.ApplicationEntry     : The following profiles are active: h2tcpclient
+2020-10-21 04:14:18.374  INFO 4693 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-21 04:14:18.619  INFO 4693 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-21 04:14:19.504  INFO 4693 --- [           main] c.m.metricsruncheck.ApplicationEntry     : Started ApplicationEntry in 5.008 seconds (JVM running for 6.81)
+Spring configuration complete, h2tcpclient database in use.
+
+***************************************************************************************
+*   The use of a H2 database is intended to assist in tutorials and 'quick start'.    *
+*   Please use a MySQL or PostgreSQL database for more formal work.                   *
+*                                                                                     *
+***************************************************************************************
+
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Wed Oct 21 04:14:19 UTC 2020
+^
+
+   DataHunterTestResults.csv  file uploaded at Wed Oct 21 04:14:19 UTC 2020 :
+        342 file lines processed
+        326 transaction samples created
+        took 0 secs
+
+____________________________________
+326 Total samples written
+ 
+
+Run start time set as 202010210411  [ Wed Oct 21 04:11:46 UTC 2020, Timestamp 1603253506198 ], with a duration of 2 mins,  period of 20201021_041146 - 20201021_041405
+Epoch Range (msec)  [ 1603253506198 : 1603253645262 ]
+
+Run reference has been set as  20201021_041146
+deleteRun sql: delete from RUNS where APPLICATION='DataHunter' and RUN_TIME='202010210411'
+extractTransactionResponsesSummary sql: starts at Wed Oct 21 04:14:19 UTC 2020
+extractTransactionResponsesSummary sql: completed Wed Oct 21 04:14:19 UTC 2020.   took 0 secs
+Runcheck: SLA Failed Warning  : DH-lifecycle-0100-deleteMultiplePolicies has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 0.809 secs, SLA of 0.400
+Runcheck: SLA Failed Warning  : DH-lifecycle-0200-addPolicy has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 1.248 secs, SLA of 0.400
+Runcheck: SLA Failed Warning  : DH-lifecycle-0300-countUnusedPolicies has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 1.668 secs, SLA of 0.400
+Runcheck: SLA Failed Warning  : DH-lifecycle-0500-useNextPolicy has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 0.835 secs, SLA of 0.400
+Runcheck: SLA Failed Warning  : DH-lifecycle-9999-finalize-deleteMultiplePolicies has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 2.970 secs, SLA of 0.400
+Runcheck: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL Average on localhost.  Range is set as 5.0 to 60.0, actual was 60.75
+Runcheck completed.
+2020-10-21 04:14:20.088  INFO 4693 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-10-21 04:14:20.102  INFO 4693 --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+convert xml file to csv
+Result Files Converter starting .. (v3.0.0) 
+cwd = /var/mark59/resultFilesConverter/target
+
+JmterResultsConverter  executing using the following arguments 
+-------------------------------------------------------------- 
+ inputdirectory        : /var/Mark59_Runs/Jmeter_Results/DataHunter
+ outputdirectoy        : /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED
+ outputFilename        : DataHunterTestResults_converted.csv
+ errortransactions     : No
+ eXcludeResultsWithSub : True
+ metricsfile           : SplitByDataType
+-------------------------------------------------------------- 
+
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_CPU_UTIL.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_DATAPOINT.csv
+initializeCsvWriter /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_MEMORY.csv
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Wed Oct 21 04:14:20 UTC 2020
+^
+
+   DataHunterTestResults.csv processing completed  at Wed Oct 21 04:14:20 UTC 2020 :
+        342 file lines processed
+        326 transaction samples loaded
+        took 0 secs
+
+
+   MERGED bypassed
+____________________________________
+326 Total samples written
+ 
+
+Result Files Converter completed.
+run jmeter report generation
+/tmp/jenkins7606755094308111090.sh: 79: /tmp/jenkins7606755094308111090.sh: BEGINMAILScenario_Run_ok: not found
+Build step 'Console output (build log) parsing' changed build result to UNSTABLE
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level /var/Mark59_Runs/htmlreport/DataHunter to /var/jenkins_home/jobs/DataHunter_Result/builds/5/htmlreports/TransactionsReport
+[htmlpublisher] Archiving at BUILD level /var/Mark59_Runs/htmlreport/DataHunter_CPU_UTIL to /var/jenkins_home/jobs/DataHunter_Result/builds/5/htmlreports/CPUUtilizationsReport
+[htmlpublisher] Archiving at BUILD level /var/Mark59_Runs/htmlreport/DataHunter_DATAPOINT to /var/jenkins_home/jobs/DataHunter_Result/builds/5/htmlreports/DataPointsReport
+[htmlpublisher] Archiving at BUILD level /var/Mark59_Runs/htmlreport/DataHunter_MEMORY to /var/jenkins_home/jobs/DataHunter_Result/builds/5/htmlreports/MemoryMetricsReport
+Finished: UNSTABLE

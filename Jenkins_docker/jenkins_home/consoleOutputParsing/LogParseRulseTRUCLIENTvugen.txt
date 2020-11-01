@@ -1,0 +1,5 @@
+info /"Pass" status/ 
+info /Starting iteration/
+info /: Error -205177: exception while calling handlers in RuleEngine dispatch/
+error /: Error/
+error /"Fail" status/

@@ -1,0 +1,190 @@
+<STYLE>
+BODY, TABLE, TD, TH,P {
+  font-family:Verdana,Helvetica,sans serif;
+  font-size:12px;
+  color:black;
+}
+h1 { color:black; }
+h2 { color:black; }
+h3 { color:black; }
+h4 { color:MidnightBlue; }
+
+TD.bg1 { color:white; background-color:#0000C0; font-size:120% }
+TD.bg2 { color:white; background-color:#4040FF; font-size:110% }
+TD.bg3 { color:white; background-color:#8080FF; }
+TD.test_Passed { color:green; }
+TD.test_failed { color:red; }
+TD.console { font-family:Courier New; }
+
+</STYLE>
+<BODY>
+Hello all,<BR>
+
+<%
+  import org.apache.commons.lang.StringUtils;
+  import java.util.concurrent.*; 	
+
+  String viewBasedOnJobName = this.binding.build.project.name.replace("_Mailer_","") 	
+  overviewView = hudson.model.Hudson.instance.getView(viewBasedOnJobName) 
+  activeJobs = overviewView.items.findAll {job -> job.isBuildable() && job.name.toUpperCase().endsWith("_RESULT") }
+  lastRuns = activeJobs.findAll{job -> job.lastBuild != null } 
+%> 
+
+<h4><%= viewBasedOnJobName %> Continuous Performance testing</h4>
+This email displays the last 15 builds for <%= viewBasedOnJobName %> Continuous Performance Test results.  Note: the job results can also be viewed from '<b><a href="http://localhost:8082/view/<%= viewBasedOnJobName %>/"><%= viewBasedOnJobName %></a></b>'<BR>
+<BR>
+
+<%
+ public String getResultImgTagIconForRun(FreeStyleBuild run, int i) {
+    
+	extractLogText = StringUtils.substringBetween(run.logFile.text, "BEGINMAIL", "ENDMAIL")  
+   
+	resultImgTag = "unknown"
+	resultText   = "unknown"
+	
+	
+	if (run.result == hudson.model.Result.SUCCESS) {
+		resultImgTag = "<IMG SRC='green.png' width='15' height='15' />" 
+		resultText   = "Passed" 
+		
+	} else if (run.result == hudson.model.Result.FAILURE ) {
+	
+		if (extractLogText == "Script_verify_failure") {
+		
+			resultImgTag = "<IMG SRC='scriptVerifyFailed.jpg' width='15' height='15'  />" 
+			resultText   = "Script FAILURE" 	
+
+		} else if (extractLogText == "Scenario_Run_Fail") {
+
+			resultImgTag = "<IMG SRC='noRun.jpg' width='15' height='15' />" 
+			resultText   = "Did Not Run" 	
+
+		} else {	
+
+			resultImgTag = "<IMG SRC='red.png' width='15' height='15'  />" 
+			resultText   = "Critical FAILURE"		
+		}
+	
+	} else if (run.result == hudson.model.Result.UNSTABLE ) {
+	
+		resultImgTag = "<IMG SRC='yellow.png' width='15' height='15'  />"  
+		resultText   = "SLA Failure(s)" 
+		
+	} else if (run.result == hudson.model.Result.ABORTED ) {
+	
+		resultImgTag = "<IMG SRC='aborted.png' width='15' height='15'  />"  
+		resultText   = "Aborted!" 
+
+	} else {
+	
+		resultImgTag = "?"  
+		resultText   = "Unknown Status" 
+	}
+    	return resultImgTag;
+    }
+%> 
+
+<TABLE>
+
+<TR> <TD></TD> <TD></TD> <TD></TD>  <TD><b>Application<br><sup>(links to CI tooling)</sup></TD> <TD></TD>  <TD><b>last build</TD> <TD></TD> <TD><b>hours<br>ago</TD> <TD></TD> <TD colspan="15"><b>results history</b></TD> </TR>
+<%  lastRuns.each { freeStyleProject ->
+
+	extractLogText = StringUtils.substringBetween(freeStyleProject.lastBuild.logFile.text, "BEGINMAIL", "ENDMAIL")  
+   
+	resultImgTag = "unknown"
+	resultText   = "unknown"
+	
+	if (freeStyleProject.lastBuild.result == hudson.model.Result.SUCCESS) {
+		resultImgTag = "<IMG SRC='green.png' />" 
+		resultText   = "Passed" 
+		
+	} else if (freeStyleProject.lastBuild.result == hudson.model.Result.FAILURE ) {
+	
+		if (extractLogText == "Script_verify_failure") {
+		
+			resultImgTag = "<IMG SRC='scriptVerifyFailed.jpg' width='28' height='28' />" 
+			resultText   = "Script FAILURE" 	
+
+		} else if (extractLogText == "Scenario_Run_Fail") {
+
+			resultImgTag = "<IMG SRC='noRun.jpg' width='28' height='28' />" 
+			resultText   = "Did Not Run" 	
+
+		} else {	
+
+			resultImgTag = "<IMG SRC='red.png' />" 
+			resultText   = "Critical FAILURE"		
+		}
+	
+	} else if (freeStyleProject.lastBuild.result == hudson.model.Result.UNSTABLE ) {
+	
+		resultImgTag = "<IMG SRC='yellow.png' />"  
+		resultText   = "SLA Failure(s)" 
+		
+	} else if (freeStyleProject.lastBuild.result == hudson.model.Result.ABORTED ) {
+	
+		resultImgTag = "<IMG SRC='aborted.png'  width='33' height='33' />"  
+		resultText   = "Aborted!" 
+
+	} else {
+
+		resultImgTag = "?"  
+		resultText   = "Unknown Status" 
+	}
+	
+	jobnameWithResultTextRemoved = freeStyleProject.name.replace("_result", "").replace("_Result", "")
+	citoollink = "<a" + StringUtils.substringBetween(freeStyleProject.description, "<a", ">") + ">" +  jobnameWithResultTextRemoved + "</a>" 
+	
+	hoursSinceLastRun = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis() - freeStyleProject.lastBuild.timeInMillis) 
+	if (hoursSinceLastRun > 24) {
+		hoursSinceLastRun =  "<b>" + hoursSinceLastRun + "</b>"
+	}	
+%>
+    <TR>
+	    <TD align="right">${resultImgTag}</TD>
+	    <TD align="right">${resultText}</TD>
+	    <TD width="10"></TD>
+	    <TD>${citoollink}</TD>
+	    <TD width="20"></TD>    
+	    <TD>${freeStyleProject.lastBuild.time}</TD> 	    
+	    <TD width="10"></TD>	    
+	    <TD>${hoursSinceLastRun}</TD>
+	    <TD width="20"></TD>  
+<%    
+     String resultImgTagForRun;
+     
+     for (int i = 1; i < 15; i++ ) {
+	  if ( i < freeStyleProject.getBuilds().size() ) {
+		resultImgTagForRun =  getResultImgTagIconForRun(freeStyleProject.getBuilds().get(i), i );
+	  } else {
+	  	resultImgTagForRun = "  -"
+	  }		
+%>
+		<TD> <%= resultImgTagForRun %> </TD> 
+<%	 
+      }
+%>
+    </TR> 
+<%     
+   }
+%>
+
+</TABLE>
+<BR>
+<b style="font-size:10px">Legend</b>
+    
+<TABLE  style="width:100%">                         
+    <TR><TD><IMG SRC="green.png" width="15" height="15"></TD><TD style="font-size:10px">SLAs passed for Nightly Performance Test Build</TD></TR>
+    <TR><TD><IMG SRC="yellow.png" width="15" height="15"></TD><TD style="font-size:10px">Nightly Performance Test Build indicate one or more Performance SLAs have been breached</TD></TR>
+    <TR><TD><IMG SRC="red.png" width="15" height="15"></TD><TD style="font-size:10px">Nightly Performance Test Build executed, but results indicate a Severe Error has occurred </TD></TR>
+    <TR><TD><IMG SRC="scriptVerifyFailed.jpg" width="15" height="15"></TD><TD style="font-size:10px">Nightly Performance Test Build was not executed, due to a failure during Script Verification</TD></TR>    
+    <TR><TD><IMG SRC="noRun.jpg" width="15" height="15"></TD><TD style="font-size:10px">Nightly Performance Test Build was not executed (possible timeout or server in use by a manual test)</TD></TR>
+    <TR><TD><IMG SRC="aborted.png" width="16" height="16"></TD><TD style="font-size:10px">Performance Results Analysis Job was manually Aborted or timed out</TD></TR>
+</TABLE>
+
+<BR>
+<BR>Kind regards,
+<BR>Performance and Volume Testing Team
+<BR>email: tba
+
+</BODY>

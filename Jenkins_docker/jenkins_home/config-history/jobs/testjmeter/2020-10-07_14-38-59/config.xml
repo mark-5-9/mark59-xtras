@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><project>
+  <actions/>
+  <description>temp test</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>java -version
+
+# "Pass" status
+
+#  Starting iteration
+
+cd /var/apache-jmeter/bin 
+/var/apache-jmeter/bin/jmeter -n -X -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlanForDocker.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0
+
+echo Starting iteration
+
+echo ":Error" </command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.1">
+      <unstableOnWarning>true</unstableOnWarning>
+      <failBuildOnError>true</failBuildOnError>
+      <showGraphs>false</showGraphs>
+      <parsingRulesPath>/var/jenkins_home/consoleOutputParsing/LogParseRulesJmeterExecute.txt</parsingRulesPath>
+      <useProjectRule>false</useProjectRule>
+    </hudson.plugins.logparser.LogParserPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>

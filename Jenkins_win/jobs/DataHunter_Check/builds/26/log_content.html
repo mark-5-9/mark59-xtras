@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/color.css" />
+	</head>
+	<body>
+<style>
+  body {margin-left:.5em; }
+  pre {font-family: Consolas, "Courier New"; word-wrap: break-word; }
+  pre span {word-wrap: break-word; } 
+</style>
+<pre>Started by user admin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check
+[DataHunter_Check] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins8621751764969837442.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationCheck.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;REM Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;break1&gt;C:\temp\DataHunterResults.xml 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;C:  
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Check&gt;cd C:\apache-jmeter\bin 
+
+C:\apache-jmeter\bin&gt;jmeter -n -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx -l C:\temp\DataHunterResults.xml -JDuration=20 -JUsers=1    -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://localhost:8081     
+Creating summariser &lt;summary&gt;
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Starting the test @ Wed Dec 18 12:00:45 AEDT 2019 (1576630845009)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Warning: Nashorn engine is planned to be removed from a future JDK release
+summary +      3 in 00:00:18 =    0.2/s Avg:  4346 Min:  2797 Max:  7239 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      5 in 00:00:28 =    0.2/s Avg: 15902 Min:  2808 Max: 31372 Err:     0 (0.00%) Active: 1 Started: 5 Finished: 4
+summary =      8 in 00:00:46 =    0.2/s Avg: 11568 Min:  2797 Max: 31372 Err:     0 (0.00%)
+summary =      8 in 00:00:46 =    0.2/s Avg: 11568 Min:  2797 Max: 31372 Err:     0 (0.00%)
+Tidying up ...    @ Wed Dec 18 12:01:31 AEDT 2019 (1576630891324)
+... end of run
+</pre>	</body>
+</html>

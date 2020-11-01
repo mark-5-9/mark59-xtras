@@ -1,0 +1,75 @@
+Started by user [8mha:////4CtB8jC9kLs/QI9dTXtKBMt5oG64QCmUvc0S4EeTYJtbAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_DistributedJmeterServices
+[DataHunterDistributed_DistributedJmeterServices] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins422288484779810352.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunterDistributed_DistributedJmeterServices>CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationDistributedJmeterServices.bat 
+ 
+slaveServers: SLAVEPC:10.222.22.22
+ 
+starting jmeter-server on slave name:ip "SLAVEPC:10.222.22.22" ..  
+  RUNNING COMMAND: /node:SLAVEPC process call create "C:\apache-jmeter\bin\jmeter-server.bat -Djava.rmi.server.hostname=10.222.22.22"
+Executing (Win32_Process)->Create()
+Method execution successful.
+Out Parameters:
+instance of __PARAMETERS
+{
+	ProcessId = 19484;
+	ReturnValue = 0;
+};
+
+  For informational purposes only, displaying IP list for SLAVEPC ..  
+IPAddress                                      
+                                               
+                                               
+{"10.222.22.22", "fe80::4909:cc68:cc71:851c"}  
+                                               
+                                               
+{"172.24.80.1", "fe80::961:e1d7:ddb3:d12a"}    
+{"10.0.75.1", "fe80::141f:4704:d28b:7187"}     
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+
+starting jmeter-server on master  .. 
+   RUNNING COMMAND:  wmic process call create "C:\apache-jmeter\bin\jmeter-server.bat -Djava.rmi.server.hostname=10.111.11.111"
+Executing (Win32_Process)->Create()
+Method execution successful.
+Out Parameters:
+instance of __PARAMETERS
+{
+	ProcessId = 22304;
+	ReturnValue = 0;
+};
+
+   For informational purposes only, displaying IP of master ..
+IPAddress                                       
+                                                
+                                                
+                                                
+{"10.111.11.111", "fe80::c8ca:495f:6e35:14fe"}  
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+
+Triggering a new build of [8mha:////4OPYzjtOyqwx39MKDwpkDdA0bJr7ew7RVxcMFeYLGWCiAAAArR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzZEgZl/az8JH2XxJJEj9K8ktQil8xioElJpSWpKfGuFanJQIY+AKlp6nbYAAAA[0mDataHunterDistributed_Execute
+Finished: SUCCESS

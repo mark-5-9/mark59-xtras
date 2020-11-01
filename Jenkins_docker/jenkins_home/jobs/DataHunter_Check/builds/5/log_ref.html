@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/color.css" />
+	</head>
+	<body>
+<script type="text/javascript">
+	function toggleList(list){
+		element = document.getElementById(list).style;
+		element.display == 'none' ? element.display='block' : element.display='none';
+	}
+</script>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8080///static/83a4520b/images/16x16/red.gif" style="margin: 2px;" width="24" alt="Error Icon" height="24" />
+<a href="javascript:toggleList('Error')" target="_self"><STRONG>Error (0)</STRONG></a><br />
+<ul style="display: none;" id="Error" >
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8080///static/83a4520b/images/16x16/yellow.gif" style="margin: 2px;" width="24" alt="Warning Icon" height="24" />
+<a href="javascript:toggleList('Warning')" target="_self"><STRONG>Warning (0)</STRONG></a><br />
+<ul style="display: none;" id="Warning" >
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8080///static/83a4520b/images/16x16/blue.gif" style="margin: 2px;" width="24" alt="Info Icon" height="24" />
+<a href="javascript:toggleList('Info')" target="_self"><STRONG>Info (5)</STRONG></a><br />
+<ul style="display: none;" id="Info" >
+<li>1 <a target="content" href="log_content.html#INFO1"><span class="info" style="color: blue">summary +      1 in 00:00:04 =    0.3/s Avg:  2820 Min:  2820 Max:  2820 Err:     0 (0.00%) Active: 3 Started: 3 Finished: 0</span></a></li>
+<li>2 <a target="content" href="log_content.html#INFO2"><span class="info" style="color: blue">summary +      2 in 00:00:29 =    0.1/s Avg: 21341 Min: 11902 Max: 30780 Err:     0 (0.00%) Active: 2 Started: 3 Finished: 1</span></a></li>
+<li>3 <a target="content" href="log_content.html#INFO3"><span class="info" style="color: blue">summary =      3 in 00:00:33 =    0.1/s Avg: 15167 Min:  2820 Max: 30780 Err:     0 (0.00%)</span></a></li>
+<li>4 <a target="content" href="log_content.html#INFO4"><span class="info" style="color: blue">summary +      1 in 00:00:04 =    0.2/s Avg: 11204 Min: 11204 Max: 11204 Err:     0 (0.00%) Active: 0 Started: 3 Finished: 3</span></a></li>
+<li>5 <a target="content" href="log_content.html#INFO5"><span class="info" style="color: blue">summary =      4 in 00:00:37 =    0.1/s Avg: 14176 Min:  2820 Max: 30780 Err:     0 (0.00%)</span></a></li>
+</ul>
+<style>
+    ul {margin-left: 0; padding-left: 1em;}
+    ul li {font-size: small; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-top: .5em; }
+    ul li:hover {white-space: normal;}
+    ul li a:link {text-decoration: none;}
+    ul li:hover a:link {text-decoration: underline;}
+</style>
+<img src="http://localhost:8080///static/83a4520b/images/16x16/gray.gif" style="margin: 2px;" width="24" alt="Debug Icon" height="24" />
+<a href="javascript:toggleList('Debug')" target="_self"><STRONG>Debug (0)</STRONG></a><br />
+<ul style="display: none;" id="Debug" >
+</ul>
+	</body>
+</html>

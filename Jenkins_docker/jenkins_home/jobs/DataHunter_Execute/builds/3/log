@@ -1,0 +1,32 @@
+Started by upstream project "[8mha:////4ORzlc/A2fmnk3TMV5nZiZXPnwe42hE67JR2X8fcVVslAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyBEgYx/az8JH2XxJJEj9K8ktSieOeM1ORsfQB8LepDywAAAA==[0mDataHunter_Check" build number [8mha:////4J1tzhVs5LAZqOVQ81JpIp5c63CiJTJW0PCCgDtQ4uYsAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBnH9rPwkfZfEkkSP0ryS1KJ454zU5Gx9YwCSjP+FzAAAAA==[0m3
+originally caused by:
+ Started by user [8mha:////4GwA5J8YCLKpu2bXZKTiLv6QSMen6cUc48IAQsSyKU0aAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/DataHunter_Execute
+[DataHunter_Execute] $ /bin/sh /tmp/jenkins3934450919450405982.sh
+Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test
+Executing test plan.....
+/var/Mark59_Runs/Jmeter_Results
+/var/apache-jmeter/bin/jmeter -n -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlan.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://datahunter:8081 -JMark59ServerMetricsWebUrl=http://mark59servermetricsweb:8085/mark59-server-metrics-web -JHeadlessModeIteratorTG=true -JRunningInDocker=true -JAdditionalOptions=--proxy-server=direct://
+Creating summariser <summary>
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlan.jmx
+Starting standalone test @ Wed Oct 21 02:09:28 UTC 2020 (1603246168278)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Parameter runningInDocker : true
+DataHunter Selenium Test Plan:  Mark59 properties directly set within the test plan : 
+mark59.screenshot.directory        : /var/Mark59_Runs/Jmeter_ScreenshotLogs/DataHunter
+mark59.selenium.driver.path.chrome : /var/mark59/dataHunterPerformanceTestSamples/chromedriver
+OS property has been set to : LINUX
+summary +      1 in 00:00:04 =    0.3/s Avg:  2943 Min:  2943 Max:  2943 Err:     0 (0.00%) Active: 3 Started: 3 Finished: 0
+summary +      4 in 00:00:29 =    0.1/s Avg: 14880 Min:  2381 Max: 30901 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary =      5 in 00:00:33 =    0.2/s Avg: 12492 Min:  2381 Max: 30901 Err:     0 (0.00%)
+summary +      5 in 00:00:30 =    0.2/s Avg: 11939 Min:  2276 Max: 30873 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary =     10 in 00:01:03 =    0.2/s Avg: 12215 Min:  2276 Max: 30901 Err:     0 (0.00%)
+summary +      5 in 00:00:29 =    0.2/s Avg: 19831 Min: 10934 Max: 30859 Err:     0 (0.00%) Active: 2 Started: 5 Finished: 3
+summary =     15 in 00:01:33 =    0.2/s Avg: 14754 Min:  2276 Max: 30901 Err:     0 (0.00%)
+summary +      1 in 00:00:03 =    0.3/s Avg: 30689 Min: 30689 Max: 30689 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =     16 in 00:01:36 =    0.2/s Avg: 15750 Min:  2276 Max: 30901 Err:     0 (0.00%)
+Tidying up ...    @ Wed Oct 21 02:11:04 UTC 2020 (1603246264663)
+... end of run
+Triggering a new build of [8mha:////4FvFhzPE4+W7jm0WsrzlUvQgYMyU0zFtsKvxiDCxtgAxAAAAox+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZx/az8JH2XxJJEj9K8ktSi+KDU4tKcEn0AVwdvdMwAAAA=[0mDataHunter_Result
+Finished: SUCCESS

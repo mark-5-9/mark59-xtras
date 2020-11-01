@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8080/css/color.css" />
+	</head>
+	<body>
+<style>
+  body {margin-left:.5em; }
+  pre {font-family: Consolas, "Courier New"; word-wrap: break-word; }
+  pre span {word-wrap: break-word; } 
+</style>
+<pre>Started by upstream project "DataHunter_Check" build number 2
+originally caused by:
+ Started by user admin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/DataHunter_Execute
+[DataHunter_Execute] $ /bin/sh /tmp/jenkins2957257119704512057.sh
+Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test
+Executing test plan.....
+/var/Mark59_Runs/Jmeter_Results
+/var/apache-jmeter/bin/jmeter -n -f -t /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlan.jmx -l /var/Mark59_Runs/Jmeter_Results/DataHunter/DataHunterTestResults.csv -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://datahunter:8081 -JMark59ServerMetricsWebUrl=http://mark59servermetricsweb:8085/mark59-server-metrics-web -JHeadlessModeIteratorTG=true -JRunningInDocker=true -JAdditionalOptions="--proxy-server=direct://"
+Creating summariser &lt;summary&gt;
+Created the tree successfully using /var/mark59/dataHunterPerformanceTestSamples/test-plans/DataHunterSeleniumTestPlan.jmx
+Starting standalone test @ Wed Oct 14 03:06:54 UTC 2020 (1602644814737)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Parameter runningInDocker : true
+DataHunter Selenium Test Plan:  Mark59 properties directly set within the test plan : 
+mark59.screenshot.directory            : /var/Mark59_Runs/Jmeter_ScreenshotLogs/DataHunter
+OS property has been set to : LINUX
+summary +      2 in 00:00:06 =    0.3/s Avg:  3049 Min:  2436 Max:  3662 Err:     0 (0.00%) Active: 3 Started: 3 Finished: 0
+summary +      3 in 00:03:29 =    0.0/s Avg: 73913 Min:  3367 Max: 199779 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary =      5 in 00:03:36 =    0.0/s Avg: 45567 Min:  2436 Max: 199779 Err:     0 (0.00%)
+summary +      4 in 00:00:11 =    0.4/s Avg: 198888 Min: 173280 Max: 221668 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =      9 in 00:03:47 =    0.0/s Avg: 113710 Min:  2436 Max: 221668 Err:     0 (0.00%)
+Tidying up ...    @ Wed Oct 14 03:10:42 UTC 2020 (1602645042084)
+... end of run
+</pre>	</body>
+</html>

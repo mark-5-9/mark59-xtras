@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>log-parser plugin page</title>
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/style.css" />
+		<link type="text/css" rel="stylesheet" href="http://localhost:8082/css/color.css" />
+	</head>
+	<body>
+<style>
+  body {margin-left:.5em; }
+  pre {font-family: Consolas, "Courier New"; word-wrap: break-word; }
+  pre span {word-wrap: break-word; } 
+</style>
+<pre>Started by upstream project "DataHunter_Check" build number 26
+originally caused by:
+ Started by user admin
+Running as SYSTEM
+Building in workspace C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute
+[DataHunter_Execute] $ cmd /c call C:\Users\SUSER1\AppData\Local\Temp\jenkins4520509402363515336.bat
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;CALL C:\gitrepo\mark-5-9\mark59-xtras\Jenkins_JobsConfig\jmeterApplicationExecute.bat 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM  Run a Jmeter Test in non-GUI mode from Jenkins (standalone or distributed)  
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM   
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM  Note: to change a Jmeter property add -J{property}={value} to the jmeter command  (-G is required to pass to all instances in a distributed test). 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM        eg, to use xml as the default output file format: 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM        jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -Jjmeter.save.saveservice.output_format=xml -l C:\Jmeter_Results..... 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;REM
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;if true EQU false (
+call C:\work\Admin\JenkinsConfig\reportUnstable.bat  
+ Exit /B 0 
+) 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;echo "execting test plan.........................." 
+"execting test plan.........................."
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;if true EQU false (Exit /B 1 ) 
+
+C:\_Jenkins\JENKINS_HOME\workspace\DataHunter_Execute&gt;if true EQU true (
+if false EQU true (RMDIR C:\Temp /s /q    )  
+ C: 
+ if exist C:\Jmeter_Results\DataHunter\ RD /Q /S C:\Jmeter_Results\DataHunter  
+ mkdir C:\Jmeter_Results\DataHunter  
+ REM https://www.howtogeek.com/forum/topic/wmic-not-recognized-as-an-internal-or-external-command (wmic, similar issue for ssh)  
+ set path=C:\Program Files\Java\jdk-11\bin;C:\Windows\System32;C:\windows\system32\wbem  
+ cd C:\apache-jmeter\bin  
+ break1&gt;C:\Jmeter_Results\DataHunter\  
+ jmeter -n -X -f -t C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx  -l C:\Jmeter_Results\DataHunter\   -JForceTxnFailPercent=0 -JDataHunterUrlHostPort=http://localhost:8081      
+ if false EQU true (
+MKDIR C:\Temp  
+ COPY C:\Jmeter_Results\DataHunter C:\Temp 
+)  
+ EXIT /B 0 
+) 
+The system cannot find the path specified.
+Creating summariser &lt;summary&gt;
+Created the tree successfully using C:\gitrepo\mark-5-9\mark59\dataHunterPVTest\test-plans\DataHunterSeleniumTestPlan.jmx
+Starting the test @ Wed Dec 18 12:01:43 AEDT 2019 (1576630903805)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Warning: Nashorn engine is planned to be removed from a future JDK release
+summary +      3 in 00:00:18 =    0.2/s Avg:  4443 Min:  2750 Max:  7570 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      5 in 00:00:28 =    0.2/s Avg: 15797 Min:  2733 Max: 31327 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary =      8 in 00:00:46 =    0.2/s Avg: 11539 Min:  2733 Max: 31327 Err:     0 (0.00%)
+summary +      7 in 00:00:32 =    0.2/s Avg:  8606 Min:  2595 Max: 31418 Err:     0 (0.00%) Active: 3 Started: 5 Finished: 2
+summary =     15 in 00:01:18 =    0.2/s Avg: 10170 Min:  2595 Max: 31418 Err:     0 (0.00%)
+summary +      3 in 00:00:11 =    0.3/s Avg: 13876 Min:  2766 Max: 31441 Err:     0 (0.00%) Active: 0 Started: 5 Finished: 5
+summary =     18 in 00:01:29 =    0.2/s Avg: 10788 Min:  2595 Max: 31441 Err:     0 (0.00%)
+Tidying up ...    @ Wed Dec 18 12:03:12 AEDT 2019 (1576630992748)
+... end of run
+</pre>	</body>
+</html>

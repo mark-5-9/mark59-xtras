@@ -1,0 +1,282 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;br&gt;&#xd;
+For Trending Analysis of these runs see the   &lt;a href=&quot;http://localhost:8083/metrics/trending?reqApp=DataHunter&quot;&gt;DataHunter Trend Analysis&lt;/a&gt;&#xd;
+&lt;br&gt;&#xd;
+To review the current SLA definitiions see  &lt;a href=&quot;http://localhost:8083/metrics/viewSlaList?reqApp=DataHunter&quot;&gt;the SLA database list&lt;/a&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>14</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>parmExecuteScriptVerificationPassed</name>
+          <description>to run this job to re-load results tick this as true </description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>parmExecuteResult</name>
+          <description>for manual rerun, endure set to:  Execution_OK</description>
+          <defaultValue>Execution_OK</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Application</name>
+          <description></description>
+          <defaultValue>DataHunter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Granularity</name>
+          <description>defines the granularity for jmeter graph reporting.
+value is in milliseconds</description>
+          <defaultValue>15000</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterHomeReportGeneration</name>
+          <description></description>
+          <defaultValue>/var/apache-jmeter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>eXcludestart</name>
+          <description>(optional) EXclude results at the start of the test for the given number of minutes.   Filter eg:  &lt;b&gt;&lt;code&gt;-x 10&lt;/code&gt;&lt;/b&gt; &lt;br&gt;
+Leave blank for no exculsion.</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>captureperiod</name>
+          <description>(optional) EXclude results at the start of the test for the given number of minutes.   Filter eg:  &lt;b&gt;&lt;code&gt;-c 60&lt;/code&gt;&lt;/b&gt; &lt;br&gt;
+Leave blank for no exculsion.</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>MetricsReportSplit</name>
+          <description>Option to create separate report(s) for metric data:&lt;br&gt;
+ -  &apos;CreateMetricsReport&apos; - create separate file with all non-txn data, suffixed _METRICS, &lt;br&gt; 
+ -  &apos;SplitByDataType&apos; create a file per datatype, suffixed with _{datatype}. &lt;br&gt; 
+ -  &apos;No&apos; - just put everything in the one output file (this is the program default when if paremeter is not entered)&lt;br&gt; </description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>SplitByDataType</string>
+              <string>No</string>
+              <string>CreateMetricsReport</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>ErrorTransactionNaming</name>
+          <description>How to handle txns marked as failed.&lt;br&gt;
+ - &apos;Rename&apos; suffixes the failed txn names with &apos;_ERRORED&apos;.&lt;br&gt; 
+ - &apos;Duplicate&apos; keeps the orignal txn plus adds a &apos;_ERRORED&apos; txn.&lt;br&gt; 
+ - &apos;No&apos; - just keep original txn name. (this is the program default when if paremeter is not entered)&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>No</string>
+              <string>Rename</string>
+              <string>Duplicate</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>eXcludeResultsWithSub</name>
+          <description>Whether to exclude the &apos;main&apos; sample Result data for sample Results that have SubResults.&lt;br&gt;
+ - &apos;True&apos; exclude main Results  (this is the program default when if paremeter is not entered).&lt;br&gt; 
+ - &apos;False&apos; include main Results.&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>True</string>
+              <string>False</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/sh
+
+echo parmExecuteScriptVerificationPassed=$parmExecuteScriptVerificationPassed
+echo parmExecuteResult=$parmExecuteResult
+
+echo Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test
+
+if [ &quot;$parmExecuteResult&quot; = &quot;Execution_OK&quot; ]; then
+	echo &quot;load results into graphical comparative analysis tooling&quot;
+	cd /var/mark59/metricsRuncheck/target/
+ #   	java -jar metricsRuncheck.jar -a $Application -i /var/Mark59_Runs/Jmeter_Results/$Application -h $mysqlserver  -p $mysqlPort -t JMETER $eXcludestart $captureperiod -r &quot;&lt;a href=&apos;$BUILD_URL$HTML_Report&apos;&gt;run $BUILD_NUMBER&lt;/a&gt;&quot;
+
+	java -jar metricsRuncheck.jar -a $Application -i /var/Mark59_Runs/Jmeter_Results/$Application -d h2tcpclient -h metrics 
+    #-t JMETER $eXcludestart $captureperiod -r &quot;&lt;a href=&apos;$BUILD_URL$HTML_Report&apos;&gt;run $BUILD_NUMBER&lt;/a&gt;&quot;
+
+	echo convert xml file to csv
+
+	if [ -d &quot;/var/Mark59_Runs/Jmeter_Results/$Application/MERGED&quot; ]; then 
+ 		rm -r /var/Mark59_Runs/Jmeter_Results/$Application/MERGED
+	fi
+
+	mkdir -p /var/Mark59_Runs/Jmeter_Results/$Application/MERGED
+
+   	cd /var/mark59/resultFilesConverter/target/
+    	java -jar resultFilesConverter.jar -i /var/Mark59_Runs/Jmeter_Results/$Application -f${Application}TestResults_converted.csv -m$MetricsReportSplit -e$ErrorTransactionNaming -x$eXcludeResultsWithSub
+
+
+	echo run jmeter report generation
+
+	rm -rf /var/Mark59_Runs/htmlreport/${Application}
+	rm -rf /var/Mark59_Runs/htmlreport/${Application}_CPU_UTIL
+	rm -rf /var/Mark59_Runs/htmlreport/${Application}_DATAPOINT
+	rm -rf /var/Mark59_Runs/htmlreport/${Application}_MEMORY
+	rm -rf /var/Mark59_Runs/htmlreport/${Application}_METRICS
+    
+	mkdir -p /var/Mark59_Runs/htmlreport/${Application}
+	mkdir -p /var/Mark59_Runs/htmlreport/${Application}_CPU_UTIL
+	mkdir -p /var/Mark59_Runs/htmlreport/${Application}_DATAPOINT
+	mkdir -p /var/Mark59_Runs/htmlreport/${Application}_MEMORY
+	mkdir -p /var/Mark59_Runs/htmlreport/${Application}_METRICS
+    
+
+
+	cd $JmeterHomeReportGeneration/bin
+    
+    $JmeterHomeReportGeneration/bin/jmeter -Jjmeter.reportgenerator.overall_granularity=$Granularity -g  /var/Mark59_Runs/Jmeter_Results/${Application}/MERGED/DataHunterTestResults_converted.csv -o /var/Mark59_Runs/htmlreport/DataHunter
+
+    $JmeterHomeReportGeneration/bin/jmeter -Jjmeter.reportgenerator.overall_granularity=$Granularity -g  /var/Mark59_Runs/Jmeter_Results/${Application}/MERGED/DataHunterTestResults_converted_CPU_UTIL.csv -o /var/Mark59_Runs/htmlreport/DataHunter_CPU_UTIL
+
+    $JmeterHomeReportGeneration/bin/jmeter -Jjmeter.reportgenerator.overall_granularity=$Granularity -g  /var/Mark59_Runs/Jmeter_Results/${Application}/MERGED/DataHunterTestResults_converted_DATAPOINT.csv -o /var/Mark59_Runs/htmlreport/DataHunter_DATAPOINT
+
+    $JmeterHomeReportGeneration/bin/jmeter -Jjmeter.reportgenerator.overall_granularity=$Granularity -g  /var/Mark59_Runs/Jmeter_Results/${Application}/MERGED/DataHunterTestResults_converted_MEMORY.csv -o /var/Mark59_Runs/htmlreport/DataHunter_MEMORY
+
+    $JmeterHomeReportGeneration/bin/jmeter -Jjmeter.reportgenerator.overall_granularity=$Granularity -g  /var/Mark59_Runs/Jmeter_Results/${Application}/MERGED/DataHunterTestResults_converted_METRICS.csv -o /var/Mark59_Runs/htmlreport/DataHunter_METRICS    
+  
+	chmod 777 /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted.csv
+	chmod 777 /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_CPU_UTIL.csv
+	chmod 777 /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_DATAPOINT.csv
+	chmod 777 /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_MEMORY.csv
+	chmod 777 /var/Mark59_Runs/Jmeter_Results/DataHunter/MERGED/DataHunterTestResults_converted_METRICS.csv
+  
+  
+fi
+
+
+mailmessage=nothing
+
+if [ &quot;$parmExecuteResult&quot; = &quot;Execution_OK&quot; ]; then
+	mailmessage=Scenario_Run_ok 
+fi
+
+if [ &quot;$parmExecuteResult&quot; = &quot;Execution_failure&quot; ]; then
+	mailmessage=Scenario_Run_Fail 
+fi
+
+if [ &quot;$parmExecuteScriptVerificationPassed&quot; = &quot;false&quot; ]; then
+	mailmessage=Script_verify_failure 
+fi
+
+
+ BEGINMAIL$mailmessage$ENDMAIL
+
+if [ &quot;$parmExecuteResult&quot; = &quot;Execution_OK&quot; ]; then
+	exit 0 
+fi
+
+if [ &quot;$parmExecuteResult&quot; = &quot;Execution_failure&quot; ]; then
+	exit 1 
+fi
+
+if [ &quot;$parmExecuteScriptVerificationPassed&quot; = &quot;false&quot; ]; then
+	exit 1 
+fi
+
+# $SHELL</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.1">
+      <unstableOnWarning>true</unstableOnWarning>
+      <failBuildOnError>true</failBuildOnError>
+      <showGraphs>false</showGraphs>
+      <parsingRulesPath>/var/jenkins_home/consoleOutputParsing/LogParseRulesJmeterExecute.txt</parsingRulesPath>
+      <useProjectRule>false</useProjectRule>
+    </hudson.plugins.logparser.LogParserPublisher>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.23">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>TransactionsReport</reportName>
+          <reportDir>/var/Mark59_Runs/htmlreport/DataHunter</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>false</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>CPUUtilizationsReport</reportName>
+          <reportDir>/var/Mark59_Runs/htmlreport/DataHunter_CPU_UTIL</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>DataPointsReport</reportName>
+          <reportDir>/var/Mark59_Runs/htmlreport/DataHunter_DATAPOINT</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>MemoryMetricsReport</reportName>
+          <reportDir>/var/Mark59_Runs/htmlreport/DataHunter_MEMORY</reportDir>
+          <reportFiles>index.html</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <reportTitles></reportTitles>
+          <keepAll>true</keepAll>
+          <allowMissing>true</allowMissing>
+          <includes>**/*</includes>
+          <escapeUnderscores>true</escapeUnderscores>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.20">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>20</timeoutMinutes>
+      </strategy>
+      <operationList/>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.11.5"/>
+  </buildWrappers>
+</project>

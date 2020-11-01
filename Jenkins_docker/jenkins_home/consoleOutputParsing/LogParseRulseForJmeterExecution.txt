@@ -1,0 +1,14 @@
+info /Created the tree successfully status/ 
+info /Starting the test/
+info /Err:\s{1,}0/
+error /Error:\s{1,}0/
+error /Err:\s{1,}[1-9]/
+error /Err: /
+error /: Error/
+error /"Fail" status/
+error /Check Finished Status =FAILURE/
+error /Not able to find Java executable or version. Please check your Java installation./
+error /'jmeter' is not recognized as an internal or external command/
+error /Chrome version must be between/
+warning /Verification Step CI not run/
+warning /SLA Failed Warning/
