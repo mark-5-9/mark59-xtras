@@ -303,9 +303,9 @@ public class DslPageFunctions  implements Serializable {
 	
 	
 	/**
-	 * Consider the potential size of the response table when using in a performance or functional test scenario
+	 * Consider the potential size of the response table when using in a performance test scenario
 	 */
-	public Map<String, AsyncMessageaAnalyzerResult> asyncMessageAnalyzerPrintResults(PolicySelectionCriteria policySelectionCriteria, WebDriver driver) {
+	public Map<String, AsyncMessageaAnalyzerResult> asyncMessageAnalyzerPrintResults(PolicySelectionCriteria policySelectionCriteria, String toUseability, WebDriver driver) {
 		String asyncMessageaAnalyzerResultKey = null;
 		AsyncMessageaAnalyzerResult asyncMessageaAnalyzerResult = null; 
 		HashMap<String, AsyncMessageaAnalyzerResult> asyncResultsMap = new HashMap<String, AsyncMessageaAnalyzerResult>();
@@ -314,6 +314,9 @@ public class DslPageFunctions  implements Serializable {
 		asyncMessageAnalyzerPage.applicationStartsWithOrEquals.selectByVisibleText(policySelectionCriteria.getApplicationStartsWithOrEquals());		
 		asyncMessageAnalyzerPage.identifier.type(policySelectionCriteria.getIdentifier());
 		asyncMessageAnalyzerPage.useability.selectByVisibleText(policySelectionCriteria.getUseability());
+		if ( ! toUseability.isEmpty()){
+			asyncMessageAnalyzerPage.toUseability.selectByVisibleText(toUseability);
+		}
 		asyncMessageAnalyzerPage.submit.submit();
 		
 		AsyncMessageAnalyzerActionPage  asyncMessageAnalyzerActionPage = new AsyncMessageAnalyzerActionPage(driver);

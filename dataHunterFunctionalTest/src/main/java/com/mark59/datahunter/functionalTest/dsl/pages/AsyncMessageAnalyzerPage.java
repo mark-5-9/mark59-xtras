@@ -34,6 +34,7 @@ public class AsyncMessageAnalyzerPage extends _GenericPage  {
 	public  InputTextElement application;
 	public  InputTextElement identifier;		
 	public  DropdownList useability;
+	public  DropdownList toUseability;
 	public  SubmitBtn submit;			
 
 	
@@ -43,6 +44,7 @@ public class AsyncMessageAnalyzerPage extends _GenericPage  {
 		application = new InputTextElement(driver, "application");
 		identifier  = new InputTextElement(driver, "identifier");
 		useability  = new DropdownList(driver, "useability");	
+		toUseability= new DropdownList(driver, "toUseability");	
 		submit   	= new SubmitBtn(driver, "submit");		
 	}
 
