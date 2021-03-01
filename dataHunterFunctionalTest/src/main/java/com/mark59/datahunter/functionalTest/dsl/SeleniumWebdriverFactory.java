@@ -53,7 +53,6 @@ public final class SeleniumWebdriverFactory {
 		
 		if ( operatingSystem.toUpperCase().contains("WIN")) {
 			chromedriverPath = "./chromedriver.exe";
-			operatingSystem = OS.WINDOWS.getOsName();
 		} else {
 			chromedriverPath = "./chromedriver";
 		}
