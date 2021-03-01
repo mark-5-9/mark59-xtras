@@ -33,11 +33,32 @@ public final class SeleniumWebdriverFactory {
 	public static String CHROME = "CHROME";
 	public static String CHROME_HEADLESS = "CHROME_HEADLESS";	
 
-	private static String chromedriverPath = "./chromedriver.exe";
-	private static final ChromeDriverService CHROME_DRIVER_SERVICE = new ChromeDriverService.Builder().usingDriverExecutable(new File(chromedriverPath)).build();
+	private static String chromedriverPath; 
+	private static ChromeDriverService CHROME_DRIVER_SERVICE; 
 	
-
+	
+	private static enum OS {
+		WINDOWS("WINDOWS"), LINUX("LINUX"), UNIX("UNIX"), UNKNOWN("UNKNOWN");
+		private String osName;
+		OS(String osName) {	this.osName = osName;}
+		public String getOsName() {return osName;}
+	}
+	
+	
 	public static WebDriver obtainWebDriver(String parmDrivertype ){
+		
+		
+		String operatingSystem = System.getProperty("os.name",OS.UNKNOWN.getOsName());
+		System.out.println("Operating system : " + operatingSystem);
+		
+		if ( operatingSystem.toUpperCase().contains("WIN")) {
+			chromedriverPath = "./chromedriver.exe";
+			operatingSystem = OS.WINDOWS.getOsName();
+		} else {
+			chromedriverPath = "./chromedriver";
+		}
+
+		CHROME_DRIVER_SERVICE = new ChromeDriverService.Builder().usingDriverExecutable(new File(chromedriverPath)).build();
 
 		System.out.println("Otaining chrome driver path = " + chromedriverPath + "),  mode = " + parmDrivertype);
 		System.out.println("Chrome Driver Stevice Status :  Running = " + CHROME_DRIVER_SERVICE.isRunning()  );

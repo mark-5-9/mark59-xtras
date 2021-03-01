@@ -4,6 +4,9 @@ Warning:  An out-of-date release of ChromeDriver is shipped with Mark59 !
 
 Release 2.44 of the Linux and Windows ChromeDrivers are included in the Mark59 'dataHunterPerformanceTestSamples' project.
 
+NOTE ONLY LINUX and WIN are catered for in this test (you will need to download the MAC version for those using MAC)  
+          Please refer  https://chromedriver.storage.googleapis.com/index.html?path=2.44/
+
 This was a release where a check was NOT included to verify ChromeDriver was compatible with the version of Chrome 
 it is driving.  This version has been used to enable the immediate execution of the Selenium tests against dataHunter in the
 dataHunterPerformanceTestSamples project, particularly when running the start-up DEMO from the mark59-web-server-metrics
