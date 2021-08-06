@@ -56,7 +56,7 @@ import com.mark59.datahunter.functionalTest.dsl.pages.UpdatePoliciesUseStatePage
 public class DslPageFunctions  implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String dataHunterUrlHostPort = DslConstants.DEFAULT_DATAHUNTER_URL_HOST_PORT; 
+	private String dataHunterUrlHostPort = DslConstants.DEFAULT_DATAHUNTER_URL; 
 
 	public DslPageFunctions() {
 	}

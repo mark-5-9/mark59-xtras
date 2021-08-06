@@ -56,7 +56,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		policySelectionCriteria.setLifecycle(null);
 		policySelectionCriteria.setUseability(null);	
 		
-		DirectPageGets directPageGets = new DirectPageGets(driver, DslConstants.DEFAULT_DATAHUNTER_URL_HOST_PORT, policySelectionCriteria.getApplication()); 
+		DirectPageGets directPageGets = new DirectPageGets(driver, DslConstants.DEFAULT_DATAHUNTER_URL, policySelectionCriteria.getApplication()); 
 						
 // 		delete multiple policies
 		directPageGets.gotoDeleteMultiplePoliciesPage();
@@ -189,7 +189,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 	@Test
 	public void asyncLifeCycleTestLowVolume() throws FileNotFoundException, IOException{		
 
-		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL_HOST_PORT);
+		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL);
 		
 		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME );  // CHROME  ||  CHROME_HEADLESS
 		PolicySelectionCriteria policySelectionCriteria = new PolicySelectionCriteria();		
@@ -324,7 +324,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 	@Test
 	public void asyncLifeCycleTestHigVolume() throws FileNotFoundException, IOException{		
 
-		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL_HOST_PORT);
+		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL);
 		
 		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME );  // CHROME  ||  CHROME_HEADLESS
 		PolicySelectionCriteria policySelectionCriteria = new PolicySelectionCriteria();		
