@@ -43,11 +43,74 @@ import com.mark59.datahunter.functionalTest.dsl.pages.*;
 public class DataHunterSeleniumFunctionalTest  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	
+	/**
+	 * Demonstrates capture of the timing of async events using DataHunter, with all selected rows being updated to USED. 
+	 * This is functionally equivalent to the DataHunterRestApiClientSampleUsage.asyncLifeCycleTestWithUseabilityUpdate() REST API 
+	 * example in the dataHunterRestApiClient project (held on the mark-5-9/mark59 github repo), but runs the web app   
+	 * 'Asynchronous Message Analyzer' function. <br>
+	 * Refer to <a href="https://github.com/mark-5-9/mark59-wip/blob/master/dataHunterRestApiClient/src/main/java/com/mark59/datahunter/restapi/samples/DataHunterRestApiClientSampleUsage.java#L26">REST API Equivalent</a>
+	 */
+	@Test
+	public void asyncLifeCycleTestWithUseabilityUpdate() throws FileNotFoundException, IOException{		
+		System.out.println( "\n\n>> Starting test asyncLifeCycleTestWithUseabilityUpdate - Demonstrate Async Processng with Useability Update\n" );	
+		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL);
+		
+		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME );  // CHROME  ||  CHROME_HEADLESS
+		PolicySelectionCriteria policySelectionCriteria = new PolicySelectionCriteria();		
+		
+//		clean up any left over data
+		policySelectionCriteria.setApplicationStartsWithOrEquals(DslConstants.EQUALS);		
+		policySelectionCriteria.setApplication("TESTAPI_ASYNC_TOUSED");
+		policySelectionCriteria.setIdentifier(null);
+		policySelectionCriteria.setLifecycle(null);		
+		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
+		dhApi.deleteMultiplePolicies(policySelectionCriteria, driver);	
+
+		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_TOUSED", "T99-testonly-01", "FIRSTONE", "UNPAIRED", "", 1460613152000L) , driver);
+		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_TOUSED", "T99-testonly-01", "between",  "UNPAIRED", "", 1460613152009L) , driver);
+		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_TOUSED", "T99-testonly-01", "LASTONE",  "UNPAIRED", "", 1460613153001L) , driver);
+		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_TOUSED", "T99-testonly-02", "FIRSTONE", "UNPAIRED", "", 1460613153000L) , driver);
+		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_TOUSED", "T99-testonly-02", "LASTONE",  "UNPAIRED", "", 1460613155001L) , driver);
+
+		policySelectionCriteria.setUseability(DslConstants.UNPAIRED);
+		Map<String, AsyncMessageaAnalyzerResult> asyncResultsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.USED, driver);
+
+		System.out.println( "    asyncLifeCycleTestWithUseabilityUpdate matching pairs (updated) (" + asyncResultsMap.size() + ")" );		
+	    System.out.println( "    -------------------------------------- ");	
+		for (Map.Entry<String, AsyncMessageaAnalyzerResult> asyncResult: asyncResultsMap.entrySet()) {
+		    System.out.println( "   | " + asyncResult.getKey() + " | " + asyncResult.getValue() + " |");
+		}	
+	    System.out.println( "    -------------------------------------- ");	
+	    
+	    assertEquals("asyncMessageAnalyzerPrintResults_1", "[application= TESTAPI_ASYNC_TOUSED, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]", asyncResultsMap.get("TESTAPI_ASYNC_TOUSED:T99-testonly-01").toString());
+	    assertEquals("asyncMessageAnalyzerPrintResults_2", "[application= TESTAPI_ASYNC_TOUSED, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613153000, endtm= 1460613155001, differencetm= 2001]", asyncResultsMap.get("TESTAPI_ASYNC_TOUSED:T99-testonly-02").toString()); 	    
+	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
+	    
+		for (AsyncMessageaAnalyzerResult  pairedAsyncTxn : asyncResultsMap.values() ) {
+			// example of a typical transaction name you could set (and its response time)
+			System.out.println( "    Txn Name :  "  + pairedAsyncTxn.getApplication() + "_" + pairedAsyncTxn.getIdentifier() + "  Respsonse time (Assumed msecs) : "  + pairedAsyncTxn.getDifferencetm()  );				
+		}
+	    System.out.println( "    -------------------------------------------- ");	
+	    
+//		end of async processing, clean up data ....    
+		policySelectionCriteria.setApplication("TESTAPI_ASYNC_TOUSED");
+		policySelectionCriteria.setIdentifier(null);
+		policySelectionCriteria.setLifecycle(null);		
+		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
+		dhApi.deleteMultiplePolicies(policySelectionCriteria, driver);	
+		assertEquals("CountPolicies count for TESTAPI_ASYNC_TOUSED  ", 0, (long)dhApi.countPolicies(policySelectionCriteria, driver)); 
+		driver.close();	
+		System.out.println( "\n<< Completed test asyncLifeCycleTestWithUseabilityUpdate - Demonstrate Async Processng with Useage Update\n" );			
+	}
+	
+	
 	/**
 	 * Runs through the basic Data Hunter lifecycle. 
 	 */
 	@Test
 	public void lifeCycleTestUsingSimpleDSL() throws FileNotFoundException, IOException{
+		System.out.println( "\n\n>> Starting test lifeCycleTestUsingSimpleDSL\n" );				
 
 		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME);  // CHROME  ||  CHROME_HEADLESS
 		
@@ -141,7 +204,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		lookupPolicy.setCreated(Timestamp.valueOf(nextPolicyActionPage.created.getText()));
 		lookupPolicy.setUpdated(Timestamp.valueOf(nextPolicyActionPage.updated.getText()));
 		lookupPolicy.setEpochtime(new Long(nextPolicyActionPage.epochtime.getText()));			
-		System.out.println( "lookupNextPolicy : " + lookupPolicy);
+		System.out.println( "    lookupNextPolicy : " + lookupPolicy);
 		assertTrue("lookupNextPolicy", lookupPolicy.toString().startsWith("[application=TESTAPI, identifier=TESTID3, lifecycle=new Business, useability=UNUSED, otherdata=,")); 		
 		
 //		use next policy
@@ -164,7 +227,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		usePolicy.setCreated(Timestamp.valueOf(nextPolicyActionPage.created.getText()));
 		usePolicy.setUpdated(Timestamp.valueOf(nextPolicyActionPage.updated.getText()));
 		usePolicy.setEpochtime(new Long(nextPolicyActionPage.epochtime.getText()));			
-		System.out.println( "lookupNextPolicy : " + lookupPolicy);
+		System.out.println( "    lookupNextPolicy : " + lookupPolicy);
 		assertTrue("useNextPolicy", usePolicy.toString().startsWith("[application=TESTAPI, identifier=TESTID3, lifecycle=new Business, useability=UNUSED, otherdata=,")); 		
 		
 // 		delete multiple policies (test cleanup)
@@ -178,17 +241,18 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		assertEquals("DeleteMultiplePolicies 3 rows should of been deleted", "3", scount); 		
 
 		driver.close();
+		System.out.println( "\n\n<< Completed test lifeCycleTestUsingSimpleDSL\n" );	
 	}	
-	
 	
 
 	/**
-	 * Demonstrates capture of the timing of async events using Datahunter, for lower volumes. 
-	 * The status of the pairs of policy rows are updated using the UpdateUseStateAndEpochTime page.     
+	 * Demonstrates capture of the timing of async events using Datahunter (but not doing the useabiltiy update). 
+	 * The status of the pairs of policy rows are the updated using the UpdateUseStateAndEpochTime page.     
 	 */
 	@Test
-	public void asyncLifeCycleTestLowVolume() throws FileNotFoundException, IOException{		
-
+	public void asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage() throws FileNotFoundException, IOException{		
+		System.out.println( "\n\n>> Starting test asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage - Demonstrate UpdateUseStateAndEpochTime Usage\n" );			
+		
 		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL);
 		
 		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME );  // CHROME  ||  CHROME_HEADLESS
@@ -200,7 +264,7 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		policySelectionCriteria.setIdentifier(null);
 		policySelectionCriteria.setLifecycle(null);		
 		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
-		System.out.println( "deleteMultiplePolicies TESTAPI_ASYNC : " + dhApi.deleteMultiplePolicies(policySelectionCriteria, driver));	
+		dhApi.deleteMultiplePolicies(policySelectionCriteria, driver);	
 
 		dhApi.addPolicy( new Policies("TESTAPI_ASYNC", "T99-testonly-01", "FIRSTONE", "UNPAIRED", "", 1460613152000L) , driver);
 		dhApi.addPolicy( new Policies("TESTAPI_ASYNC", "T99-testonly-01", "between",  "UNPAIRED", "", 1460613152009L) , driver);
@@ -211,75 +275,61 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 		policySelectionCriteria.setUseability(DslConstants.UNPAIRED);
 		Map<String, AsyncMessageaAnalyzerResult> asyncResultsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.UNSELECTED, driver);
 
-		System.out.println( "asyncMessageAnalyzerPrintResults  (" + asyncResultsMap.size() + ") - Low Vol Test" );		
-	    System.out.println( "    ------------------------------- ");	
+		System.out.println( "    asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage - matched keys (" + asyncResultsMap.size() + ")" );		
+	    System.out.println( "    --------------------------------------------------- ");	
 		for (Map.Entry<String, AsyncMessageaAnalyzerResult> asyncResult: asyncResultsMap.entrySet()) {
 		    System.out.println( "   | " + asyncResult.getKey() + " | " + asyncResult.getValue() + " |");
 		}	
-	    System.out.println( "    ------------------------------- ");	
+	    System.out.println( "    --------------------------------------------------- ");	
 	    
-		assertTrue("asyncMessageAnalyzerPrintResults_1", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]"));
-		assertTrue("asyncMessageAnalyzerPrintResults_2", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
+		assertEquals("asyncMessageAnalyzerPrintResults_1", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString());
+		assertEquals("asyncMessageAnalyzerPrintResults_2", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString()); 	    
 	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
 	    
 	    
-//		ok, now lets go thru the map (values) of the current UNPAIRED transactions again, but this time mark them as USED
-//      using the UpdateUseStateAndEpochTime page.  
-//	    Typically this is how the ansync transactions could be handled in a low-volume test scenario.
+//		ok, now lets go thru the map (values) of the current UNPAIRED transactions again, but this time mark them as USED using the UpdateUseStateAndEpochTime page.  
+//	    Could be used for ansync transactions in a low-volume test scenario - but always use the DataHunter REST API when possible.
 		
-	    System.out.println();	    
-		System.out.println( "Demonstrate typical low-volume Async Transactional Usage " );	
-	    System.out.println( "-------------------------------------------------------- ");	
-
 	    UpdateUseStateAndEpochTime updateUseStateAndEpochTime = new UpdateUseStateAndEpochTime();
 	    updateUseStateAndEpochTime.setApplication("TESTAPI_ASYNC");
 	    updateUseStateAndEpochTime.setUseability(DslConstants.UNPAIRED );
 	    updateUseStateAndEpochTime.setToUseability("USED");
 	    updateUseStateAndEpochTime.setToEpochTime(null);  	    
 	    
-	    
 		policySelectionCriteria.setUseability(DslConstants.UNPAIRED);
 		Map<String, AsyncMessageaAnalyzerResult> pairedAsyncTransactionsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.UNSELECTED, driver);
 
-		assertTrue("asyncMessageAnalyzerPrintResults_1", pairedAsyncTransactionsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]"));
-		assertTrue("asyncMessageAnalyzerPrintResults_2", pairedAsyncTransactionsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
-	    assertEquals("printSelectedPolicies ", 2, pairedAsyncTransactionsMap.size()); 				
-		
-		
+		assertEquals("asyncMessageAnalyzerPrintResults_1", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]", pairedAsyncTransactionsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString());
+		assertEquals("asyncMessageAnalyzerPrintResults_2", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= UNPAIRED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]", pairedAsyncTransactionsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString()); 	    
+	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
+		assertEquals("printSelectedPolicies ", 2, pairedAsyncTransactionsMap.size()); 				
+
 		for (AsyncMessageaAnalyzerResult  pairedAsyncTxn : pairedAsyncTransactionsMap.values() ) {
-			
 			// example of the transaction name to set (and its response time)
-			
 			System.out.println( "    Txn Name :  "  + pairedAsyncTxn.getApplication() + "_" + pairedAsyncTxn.getIdentifier() + "  Respsonse time (Assumed msecs) : "  + pairedAsyncTxn.getDifferencetm()  );				
 			
 			// once reported, the transaction rows should then be marked as used ..
-			
 			updateUseStateAndEpochTime.setIdentifier(pairedAsyncTxn.getIdentifier());
 		    //updateUseStateAndEpochTime.setToEpochTime(System.currentTimeMillis());  //optional, epoch time to null to leave it as is   				
 		    dhApi.updatePoliciesUseState(updateUseStateAndEpochTime, driver);
 		}
- 
-	    System.out.println( "-------------------------------------------- ");	
-	    System.out.println();		    
+	    System.out.println( "    ---------------------------------------------------------------------------------\n");	
 		    
 		policySelectionCriteria.setUseability(DslConstants.USED);	
 		asyncResultsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.UNSELECTED, driver);
-	    System.out.println( "asyncMessageAnalyzerPrintResults - after going thru all UNPARIED policies and setting them to USED  (" + asyncResultsMap.size() + ")" );		
-	    System.out.println( "    ------------------------------- ");	
+	    System.out.println( "    asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage - after going thru all UNPARIED policies and setting them to USED  (" + asyncResultsMap.size() + ")" );		
+	    System.out.println( "    --------------------------------------------------- ");	
 		for (Map.Entry<String, AsyncMessageaAnalyzerResult> asyncResult: asyncResultsMap.entrySet()) {
 		    System.out.println( "   | " + asyncResult.getKey() + " | " + asyncResult.getValue() + " |");
 		}	
-	    System.out.println( "    ------------------------------- ");	
+	    System.out.println( "    --------------------------------------------------- ");	
   
-		assertTrue("asyncMessageAnalyzerPrintResults_1", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]"));
-		assertTrue("asyncMessageAnalyzerPrintResults_2", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
+	    assertEquals("asyncMessageAnalyzerPrintResults_1", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString());
+	    assertEquals("asyncMessageAnalyzerPrintResults_2", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString()); 	    
 	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
     
-//		end of Async processing ....    
-	    
-	    
-//		while we are here, we'll do a bit more testing few more tests (unrelated to async) ....
-//	    test update of multiple policies Use State works  ok 	    
+//		end of Async processing    
+//		while we are here, we'll do a bit more testing few more tests (unrelated to async) ....  test update of multiple policies Use State works  ok 	    
 
 	    // update_usability to "REUSABLE"	    
 	    updateUseStateAndEpochTime.setApplication("TESTAPI_ASYNC");
@@ -289,96 +339,29 @@ public class DataHunterSeleniumFunctionalTest  implements Serializable {
 	    updateUseStateAndEpochTime.setToEpochTime(null);
 	    
 	    dhApi.updatePoliciesUseState(updateUseStateAndEpochTime, driver);	    
-	    
 
 		policySelectionCriteria.setUseability(DslConstants.REUSABLE);	
 		asyncResultsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.UNSELECTED, driver);
-	    System.out.println( "asyncMessageAnalyzerPrintResults - after re-setting all the USED polices to REUSABLE for multiple policy test  (" + asyncResultsMap.size() + ")" );		
-	    System.out.println( "    ------------------------------- ");	
+	    System.out.println( "    asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage - after re-setting all the USED polices to REUSABLE for multiple policy test  (" + asyncResultsMap.size() + ")" );		
+	    System.out.println( "    --------------------------------------------------- ");	
 		for (Map.Entry<String, AsyncMessageaAnalyzerResult> asyncResult: asyncResultsMap.entrySet()) {
 		    System.out.println( "   | " + asyncResult.getKey() + " | " + asyncResult.getValue() + " |");
 		}	
-	    System.out.println( "    ------------------------------- ");	
+	    System.out.println( "    --------------------------------------------------- ");	
   
-		assertTrue("asyncMessageAnalyzerPrintResults_1", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= REUSABLE, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]"));
-		assertTrue("asyncMessageAnalyzerPrintResults_2", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= REUSABLE, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
-	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
-	    
-	    
+		assertEquals("asyncMessageAnalyzerPrintResults_1", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= REUSABLE, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-01").toString());
+		assertEquals("asyncMessageAnalyzerPrintResults_2", "[application= TESTAPI_ASYNC, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= REUSABLE, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]", asyncResultsMap.get("TESTAPI_ASYNC:T99-testonly-02").toString()); 	    
+		assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
+	    	    
 //		remove data
 		policySelectionCriteria.setApplication("TESTAPI_ASYNC");
 		policySelectionCriteria.setIdentifier(null);
 		policySelectionCriteria.setLifecycle(null);		
 		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
-		System.out.println( "deleteMultiplePolicies TESTAPI_ASYNC : " + dhApi.deleteMultiplePolicies(policySelectionCriteria, driver));	
+		dhApi.deleteMultiplePolicies(policySelectionCriteria, driver);	
 		assertEquals("CountPolicies count for TESTAPI, new Business, UNUSED  ", 0, (long)dhApi.countPolicies(policySelectionCriteria, driver)); 
-		
 		driver.close();	
+		System.out.println( "\n<< Completed test asyncLifeCycleTestAndUpdateUseStateAndEpochTimePage\n\n" );			
 	}
-	
-	
-	/**
-	 * Demonstrates capture of the timing of async events using Datahunter, for higher volumes. 
-	 * The status of all the selected UNPAIRED policy rows all updated to USED using an option on the AsyncMessageaAnalyzerResult page.     
-	 */
-	@Test
-	public void asyncLifeCycleTestHigVolume() throws FileNotFoundException, IOException{		
-
-		DslPageFunctions dhApi = new DslPageFunctions(DslConstants.DEFAULT_DATAHUNTER_URL);
 		
-		WebDriver driver = SeleniumWebdriverFactory.obtainWebDriver(SeleniumWebdriverFactory.CHROME );  // CHROME  ||  CHROME_HEADLESS
-		PolicySelectionCriteria policySelectionCriteria = new PolicySelectionCriteria();		
-		
-//		test_paired_message_analyzer  (and bulk update usability)
-		policySelectionCriteria.setApplicationStartsWithOrEquals(DslConstants.EQUALS);		
-		policySelectionCriteria.setApplication("TESTAPI_ASYNC_HIGH_VOL");
-		policySelectionCriteria.setIdentifier(null);
-		policySelectionCriteria.setLifecycle(null);		
-		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
-		System.out.println( "deleteMultiplePolicies TESTAPI_ASYNC_HIGH_VOL : " + dhApi.deleteMultiplePolicies(policySelectionCriteria, driver));	
-
-		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_HIGH_VOL", "T99-testonly-01", "FIRSTONE", "UNPAIRED", "", 1460613152000L) , driver);
-		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_HIGH_VOL", "T99-testonly-01", "between",  "UNPAIRED", "", 1460613152009L) , driver);
-		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_HIGH_VOL", "T99-testonly-01", "LASTONE",  "UNPAIRED", "", 1460613153001L) , driver);
-		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_HIGH_VOL", "T99-testonly-02", "FIRSTONE", "UNPAIRED", "", 1460613152000L) , driver);
-		dhApi.addPolicy( new Policies("TESTAPI_ASYNC_HIGH_VOL", "T99-testonly-02", "LASTONE",  "UNPAIRED", "", 1460613154001L) , driver);
-
-		policySelectionCriteria.setUseability(DslConstants.UNPAIRED);
-		Map<String, AsyncMessageaAnalyzerResult> asyncResultsMap = dhApi.asyncMessageAnalyzerPrintResults(policySelectionCriteria, DslConstants.USED, driver);
-
-		System.out.println( "asyncMessageAnalyzerPrintResults  (" + asyncResultsMap.size() + ") - High Vol Test" );		
-	    System.out.println( "    ------------------------------- ");	
-		for (Map.Entry<String, AsyncMessageaAnalyzerResult> asyncResult: asyncResultsMap.entrySet()) {
-		    System.out.println( "   | " + asyncResult.getKey() + " | " + asyncResult.getValue() + " |");
-		}	
-	    System.out.println( "    ------------------------------- ");	
-	    
-	    assertTrue("asyncMessageAnalyzerPrintResults_1", asyncResultsMap.get("TESTAPI_ASYNC_HIGH_VOL:T99-testonly-01").toString().equals("[application= TESTAPI_ASYNC_HIGH_VOL, aStartOrEqr= null, identifier= T99-testonly-01, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613153001, differencetm= 1001]"));
-		assertTrue("asyncMessageAnalyzerPrintResults_2", asyncResultsMap.get("TESTAPI_ASYNC_HIGH_VOL:T99-testonly-02").toString().equals("[application= TESTAPI_ASYNC_HIGH_VOL, aStartOrEqr= null, identifier= T99-testonly-02, lifecycle= null, useability= USED, selectOrder= null], starttm= 1460613152000, endtm= 1460613154001, differencetm= 2001]")); 	    
-	    assertEquals("printSelectedPolicies ", 2, asyncResultsMap.size()); 				
-	    
-		
-		for (AsyncMessageaAnalyzerResult  pairedAsyncTxn : asyncResultsMap.values() ) {
-			// example of the transaction name to set (and its response time)
-			System.out.println( "    Txn Name :  "  + pairedAsyncTxn.getApplication() + "_" + pairedAsyncTxn.getIdentifier() + "  Respsonse time (Assumed msecs) : "  + pairedAsyncTxn.getDifferencetm()  );				
-		}
- 
-	    System.out.println( "-------------------------------------------- ");	
-	    System.out.println();	
-	    
-//		end of async processing, now just clean up data ....    
-	    
-		policySelectionCriteria.setApplication("TESTAPI_ASYNC_HIGH_VOL");
-		policySelectionCriteria.setIdentifier(null);
-		policySelectionCriteria.setLifecycle(null);		
-		policySelectionCriteria.setUseability(DslConstants.UNSELECTED);	
-		System.out.println( "deleteMultiplePolicies TESTAPI_ASYNC_HIGH_VOL : " + dhApi.deleteMultiplePolicies(policySelectionCriteria, driver));	
-		assertEquals("CountPolicies count for TESTAPI_ASYNC_HIGH_VOL  ", 0, (long)dhApi.countPolicies(policySelectionCriteria, driver)); 
-		
-		driver.close();	
-	}
-	
-	
-		
-			
 }

@@ -46,10 +46,9 @@ public final class SeleniumWebdriverFactory {
 	
 	
 	public static WebDriver obtainWebDriver(String parmDrivertype ){
-		
-		
+
 		String operatingSystem = System.getProperty("os.name",OS.UNKNOWN.getOsName());
-		System.out.println("Operating system : " + operatingSystem);
+		System.out.println("   Operating system : " + operatingSystem);
 		
 		if ( operatingSystem.toUpperCase().contains("WIN")) {
 			chromedriverPath = "./chromedriver.exe";
@@ -59,8 +58,8 @@ public final class SeleniumWebdriverFactory {
 
 		CHROME_DRIVER_SERVICE = new ChromeDriverService.Builder().usingDriverExecutable(new File(chromedriverPath)).build();
 
-		System.out.println("Otaining chrome driver path = " + chromedriverPath + "),  mode = " + parmDrivertype);
-		System.out.println("Chrome Driver Stevice Status :  Running = " + CHROME_DRIVER_SERVICE.isRunning()  );
+		System.out.println("   Chrome driver path = " + chromedriverPath + "),  mode = " + parmDrivertype);
+		System.out.println("   Chrome Driver Service Status :  Running = " + CHROME_DRIVER_SERVICE.isRunning()  );
 		ChromeOptions chromeOptions = new ChromeOptions();
 
 		if (CHROME.equalsIgnoreCase(parmDrivertype)){  
@@ -79,14 +78,13 @@ public final class SeleniumWebdriverFactory {
 	}
 
 	
-	
-	
 	/**
 	 * Singleton pattern to get a ChromeDriverService (if required).   Example of call:
-	 * 
-	 * 		ChromeOptions chromeOptions = new ChromeOptions();
-	 *		chromeOptions.addArguments("start-maximized");
-	 *		driver = new ChromeDriver(ChromeDriverServiceHolder.getInstance(), chromeOptions);  	
+	 * <p><code>
+	 * 		ChromeOptions chromeOptions = new ChromeOptions();<br>
+	 *		chromeOptions.addArguments("start-maximized");<br>
+	 *		driver = new ChromeDriver(ChromeDriverServiceHolder.getInstance(), chromeOptions); 
+	 * </code> 	
 	 */
 	public static class ChromeDriverServiceHolder  {
 	    private static ChromeDriverService chromeDriverServiceInstance = null;
