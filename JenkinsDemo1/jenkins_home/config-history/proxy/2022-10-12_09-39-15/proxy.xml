@@ -1,0 +1,9 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<proxy>
+  <name>proxy.auiag.corp</name>
+  <port>8080</port>
+  <userName></userName>
+  <noProxyHost></noProxyHost>
+  <secretPassword>{AQAAABAAAAAQJqPJcKx7jmTp+GLd53ux9X66TRnbrLZpEy2risB5/4A=}</secretPassword>
+  <testUrl>http://theage.com.au</testUrl>
+</proxy>

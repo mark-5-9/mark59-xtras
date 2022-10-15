@@ -1,0 +1,47 @@
+Started by user [8mha:////4OQh/mVhfxSlIxGyoFN7AY4CbvQmB1ClcY8nASylHp4eAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\jenkins\jenkins_home\workspace\DataHunter_Check
+[DataHunter_Check] $ cmd /c call C:\Users\S62991\AppData\Local\Temp\jenkins3955735588155698187.bat
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>REM *** In a real CI system these commands should be moved to a .bat file for easier maintenance ** 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>ECHO JAVA_HOME : C:\Java\jdk-11 
+JAVA_HOME : C:\Java\jdk-11
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>set path="C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>ECHO Using path "C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem 
+Using path "C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>java -version 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment 18.9 (build 11+28)
+OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>break1>C:\Temp\DataHunterTestResults.csv 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>if "false" EQU "true" (
+ECHO Kill all selenium drivers etc lying around from previous runs   
+ C: 
+ REM C:\Windows\System32\TASKKILL /IM chrome.exe /F    // Never killing this for the Demo :)   
+ C:\Windows\System32\TASKKILL /IM firefox.exe /F  
+ C:\Windows\System32\TASKKILL /IM geckodriver.exe /F  
+ C:\Windows\System32\TASKKILL /IM chromedriver.exe / 
+) 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Check>cd C:\apache-jmeter\bin 
+
+C:\apache-jmeter\bin>jmeter -n -f -t C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx -l C:\Temp\DataHunterTestResults.csv -JDuration=30 -JUsers=1 -JMonitoringUsers=1  -JForceTxnFailPercent=0          
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Creating summariser <summary>
+Created the tree successfully using C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx
+Starting standalone test @ 2022 Oct 15 11:12:58 AEDT (1665792778962)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Warning: Nashorn engine is planned to be removed from a future JDK release
+OS property has been set to : WINDOWS
+summary =      5 in 00:00:47 =    0.1/s Avg: 17730 Min:  8472 Max: 35523 Err:     0 (0.00%)
+Tidying up ...    @ 2022 Oct 15 11:13:46 AEDT (1665792826431)
+... end of run
+Triggering a new build of [8mha:////4KMJzr4qBFXDz4qAYLc7Nev5pT/2LHaEVNZfPAU2n6sGAAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyhEgYJ/az8JH2XxJJEj9K8ktSieNeK1OTSklR9AL7o8gHNAAAA[0mDataHunter_Execute
+Finished: SUCCESS

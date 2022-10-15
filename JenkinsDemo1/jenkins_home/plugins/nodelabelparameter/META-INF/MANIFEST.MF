@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.2
+Build-Jdk-Spec: 11
+Specification-Title: Node and Label parameter plugin
+Specification-Version: 1.11
+Implementation-Title: Node and Label parameter plugin
+Implementation-Version: 1.11.0
+Group-Id: org.jenkins-ci.plugins
+Short-Name: nodelabelparameter
+Long-Name: Node and Label parameter plugin
+Url: https://github.com/jenkinsci/nodelabelparameter-plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.11.0
+Hudson-Version: 2.319.3
+Jenkins-Version: 2.319.3
+Plugin-Dependencies: parameterized-trigger:2.36;resolution:=optional,tok
+ en-macro:293.v283932a_0a_b_49
+Plugin-Developers: Dominik Bartholdi:imod:,Mark Waite:MarkEWaite:mark.ea
+ rl.waite@gmail.com
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/nodelabelparameter-plugin
+

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.204.6
+Implementation-Title: external-monitor-job
+Long-Name: External Monitor Job Type Plugin
+Implementation-Version: 192.ve979ca_8b_3ccd
+Group-Id: org.jenkins-ci.plugins
+Minimum-Java-Version: 1.8
+Plugin-License-Name: The MIT license
+Specification-Title: Adds the ability to monitor the result of externa
+ lly executed jobs
+Plugin-ScmUrl: https://github.com/jenkinsci/external-monitor-job-plugi
+ n
+Plugin-Version: 192.ve979ca_8b_3ccd
+Jenkins-Version: 2.204.6
+Url: https://github.com/jenkinsci/external-monitor-job-plugin
+Short-Name: external-monitor-job
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: 
+Extension-Name: external-monitor-job
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.1
+

@@ -1,0 +1,171 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><project>
+  <actions/>
+  <description>Executes the DataHunter Demo Selenium Test Plan &#13;
+&lt;br&gt;&lt;br&gt;you will need to set to update the 'SetPath' parameter for your environment</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>14</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>ScriptVerificationPassed</name>
+          <description>expected to be 'true' if verification job passed, 'false' if it failed</description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>RunCI</name>
+          <description>Untick will perform this Script verification Job ONLY and will not trigger the full performance test.</description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Application</name>
+          <description>Application name as it will appear in the Mark59 Trends application</description>
+          <defaultValue>DataHunter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Duration</name>
+          <description>Optional Duration parameter (seconds)&lt;br&gt;
+Enter using the full format for the &lt;b&gt;Duration&lt;/b&gt; jmeter parameter.  For example &lt;b&gt;&lt;code&gt;-JDuration=3600&lt;/code&gt;&lt;/b&gt;</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterHome</name>
+          <defaultValue>C:\apache-jmeter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterTestPlan</name>
+          <description>location of the test plan to execute</description>
+          <defaultValue>C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TestResultsFileName</name>
+          <description>Jmeter results file name</description>
+          <defaultValue>DataHunterTestResults.csv</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ExtraParam1</name>
+          <description>ExtraParma1 - ExtraParam10 Available&lt;br&gt;
+Additional optional arguments that can be passed to Jmeter. For example, if your test plan has a parameter 'ForceTxnFailPercent'  
+(sample usage :  &lt;b&gt;&lt;code&gt;${__P(ForceTxnFailPercent,25)}&lt;/code&gt;&lt;/b&gt; ), then a value can be passed from here such as:  &lt;br&gt;
+&lt;b&gt;&lt;code&gt;-JForceTxnFailPercent=50&lt;/code&gt;&lt;/b&gt;</description>
+          <defaultValue>-JForceTxnFailPercent=0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ExtraParam2</name>
+          <description>Whether or not to switch the CDP listeners on in the scripts
+
+- You can add further 'ExtraParam' arguments in here if you wish , and leave there Default Values blank if they are not required </description>
+          <defaultValue>-JStartCdpListeners=true</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SetPath</name>
+          <description>the location of the Java version to use, and the wbem location. Used to invoke commands.  
+wbem is required to run the WMIC commands used to capture Win metric data, and is not by default on the path.</description>
+          <defaultValue>"C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>REM *** In a real CI system these commands should be moved to a .bat file for easier maintenance **&#13;
+REM&#13;
+REM  Run the Jmeter Test in non-GUI mode from Jenkins &#13;
+REM  &#13;
+&#13;
+if %RunCI% equ false (&#13;
+   call C:\work\Admin\JenkinsConfig\reportUnstable.bat&#13;
+   Exit /B 0&#13;
+)&#13;
+&#13;
+echo "execting test plan.........................."&#13;
+&#13;
+if %ScriptVerificationPassed% equ false (&#13;
+   Exit /B 1&#13;
+)&#13;
+&#13;
+if %ScriptVerificationPassed% equ true (&#13;
+&#13;
+    C:&#13;
+    if exist C:\Mark59_Runs\Jmeter_Results\%Application%\ RD /Q /S C:\Mark59_Runs\Jmeter_Results\%Application%&#13;
+    mkdir C:\Mark59_Runs\Jmeter_Results\%Application%&#13;
+&#13;
+    REM https://www.howtogeek.com/forum/topic/wmic-not-recognized-as-an-internal-or-external-command (wmic, similar issue for ssh)&#13;
+&#13;
+    set path=%SetPath%&#13;
+&#13;
+    cd %JmeterHome%\bin&#13;
+&#13;
+    break&gt;C:\Mark59_Runs\Jmeter_Results\%Application%\%TestResultsFileName%&#13;
+&#13;
+    jmeter -n -X -f -t %JmeterTestPlan% -Dlog4j2.formatMsgNoLookups=true -Dserver.rmi.ssl.disable=true -Dlog4j2.formatMsgNoLookups=true %DistributedIPsList% -l C:\Mark59_Runs\Jmeter_Results\%Application%\%TestResultsFileName%  %Duration% %ExtraParam1% %ExtraParam2% %ExtraParam3% %ExtraParam4% %ExtraParam5% %ExtraParam6% %ExtraParam7% %ExtraParam8% %ExtraParam9% %ExtraParam10%&#13;
+	&#13;
+    EXIT /B 0&#13;
+)</command>
+      <configuredLocalRules/>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.45">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+              <properties>parmExecuteScriptVerificationPassed=$ScriptVerificationPassed
+parmExecuteResult=Execution_failure</properties>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+          <projects>DataHunter_Result </projects>
+          <condition>FAILED</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+              <properties>parmExecuteScriptVerificationPassed=$ScriptVerificationPassed
+parmExecuteResult=Execution_OK</properties>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+          <projects>DataHunter_Result </projects>
+          <condition>SUCCESS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.18"/>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.21">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>15</timeoutMinutes>
+      </strategy>
+      <operationList/>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+  </buildWrappers>
+</project>

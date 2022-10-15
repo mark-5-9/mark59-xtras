@@ -1,0 +1,84 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><project>
+  <actions/>
+  <description>Executes the DataHunter Demo Selenium Test Plan over a short period for verification</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>30</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>RunCI</name>
+          <description>Untick will perform this Script verification Job ONLY and will not trigger the full performance test.</description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Application</name>
+          <description>Application name as it will appear in the Mark59 Trends application</description>
+          <defaultValue>DataHunter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Duration</name>
+          <description>Test run Duration in seconds - Should be only a long as necessary to validate the test plan </description>
+          <defaultValue>30</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Users</name>
+          <description>Number of users to use for shakeout. Will be applied across all (non-metric) thread groups that have been parameterized.</description>
+          <defaultValue>1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>MonitoringUsers</name>
+          <description>Number of users to use for shakeout of the 'metric capture' thread groups that have been parameterized (Usually either 1 or 0).</description>
+          <defaultValue>1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterHome</name>
+          <defaultValue>C:\apache-jmeter</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>OverrideTestResultsFile</name>
+          <description>Write the Jmeter Test Plan results out to somewhere where they will not be picked up and treated as the final Results to be processed</description>
+          <defaultValue>C:\Temp\DataHunterTestResults.csv</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ExtraParam1</name>
+          <description>ExtraParma1 - ExtraParam9 Available&lt;br&gt;
+Additional optional arguments that can be passed to Jmeter. For example, if your test plan has a parameter 'ForceTxnFailPercent'  
+(sample usage :  &lt;b&gt;&lt;code&gt;${__P(ForceTxnFailPercent,25)}&lt;/code&gt;&lt;/b&gt; ), then a value can be passed from here such as:  &lt;br&gt;
+&lt;b&gt;&lt;code&gt;-JForceTxnFailPercent=50&lt;/code&gt;&lt;/b&gt;</description>
+          <defaultValue>-JForceTxnFailPercent=0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ExtraParam2</name>
+          <description>You can add all the 'ExtraParam' arguments in here if you wish , and leave there Default Values blank if they are not required </description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>

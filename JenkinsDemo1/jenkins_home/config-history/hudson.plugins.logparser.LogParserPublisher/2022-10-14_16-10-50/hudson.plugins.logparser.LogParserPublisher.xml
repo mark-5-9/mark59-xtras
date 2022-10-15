@@ -1,0 +1,10 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.plugins.logparser.LogParserPublisher_-DescriptorImpl plugin="log-parser@2.2">
+  <parsingRulesGlobal>
+    <hudson.plugins.logparser.ParserRuleFile>
+      <name>Log_Parse_Rules_Generic_Java</name>
+      <path>$JENKINS_HOME \_parserules\LogParseRulesGenericJava.txt</path>
+    </hudson.plugins.logparser.ParserRuleFile>
+  </parsingRulesGlobal>
+  <useLegacyFormatting>false</useLegacyFormatting>
+</hudson.plugins.logparser.LogParserPublisher_-DescriptorImpl>

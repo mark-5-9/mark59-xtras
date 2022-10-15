@@ -1,0 +1,106 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><project>
+  <actions/>
+  <description>- Uses Trends Load to update the Trends database with the results&lt;br&gt;&#13;
+- Creates JMeter reports for the run.&lt;br&gt;&lt;br&gt;&#13;
+&#13;
+Trends at &lt;a href="http://http://localhost:8083/mark59-trends/trending?reqApp=DataHunter"&gt;DataHunter Trends&lt;/a&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>14</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>parmExecuteScriptVerificationPassed</name>
+          <description>flag passed through from the Check job</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>parmExecuteResult</name>
+          <description>Value indicating status of previous job (Execute)</description>
+          <defaultValue>Execution_OK</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Application</name>
+          <description>Application name as it will appear in the Mark59 Trends application</description>
+          <defaultValue>DataHunter</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Granularity</name>
+          <description>Defines the granularity for jmeter graph reporting.
+Value is in milliseconds</description>
+          <defaultValue>15000</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JmeterHomeReportGeneration</name>
+          <description>Alternate JMeter instance to use for report generations.
+- allows for customization just for reporting purposes (eg removing the APDEX section)   </description>
+          <defaultValue>C:\Jmeter\apache-jmeter5-reporting</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>MetricsReportSplit</name>
+          <description>Option to create separate report(s) for metric data:&lt;br&gt;
+ -  'CreateMetricsReport' - create separate file with all non-txn data, suffixed _METRICS, &lt;br&gt; 
+ -  'SplitByDataType' create a file per datatype, suffixed with _{datatype}. &lt;br&gt; 
+ -  'No' - just put everything in the one output file (this is the program default when if paremeter is not entered)&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>SplitByDataType</string>
+              <string>No</string>
+              <string>CreateMetricsReport</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>ErrorTransactionNaming</name>
+          <description>How to handle txns marked as failed.&lt;br&gt;
+ - 'Rename' suffixes the failed txn names with '_ERRORED'.&lt;br&gt; 
+ - 'Duplicate' keeps the orignal txn plus adds a '_ERRORED' txn.&lt;br&gt; 
+ - 'No' - just keep original txn name. (this is the program default when if paremeter is not entered)&lt;br&gt; 
+</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>Rename</string>
+              <string>No</string>
+              <string>Duplicate</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>eXcludeResultsWithSub</name>
+          <description>Whether to exclude the 'main' sample Result data for sample Results that have SubResults.&lt;br&gt;
+ - 'True' exclude main Results  (this is the program default when if paremeter is not entered).&lt;br&gt; 
+ - 'False' include main Results.&lt;br&gt;</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>True</string>
+              <string>False</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>

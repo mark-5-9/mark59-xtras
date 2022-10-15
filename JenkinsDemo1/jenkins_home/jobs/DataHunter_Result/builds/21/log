@@ -1,0 +1,181 @@
+Started by upstream project "[8mha:////4KMJzr4qBFXDz4qAYLc7Nev5pT/2LHaEVNZfPAU2n6sGAAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyhEgYJ/az8JH2XxJJEj9K8ktSieNeK1OTSklR9AL7o8gHNAAAA[0mDataHunter_Execute" build number [8mha:////4MyOtEdRmMLwlBV499AaVhSXUTmirIAVzH2NuTRPH8a0AAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBkn9rPwkfZfEkkSP0ryS1KJ414rU5NKSVH1jAAai14XOAAAA[0m3
+originally caused by:
+ Started by upstream project "[8mha:////4F6FaYguEBugFA5C8IYY96jzxdnorgE0vmPc3JHF5rNjAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyBEgYx/az8JH2XxJJEj9K8ktSieOeM1ORsfQB8LepDywAAAA==[0mDataHunter_Check" build number [8mha:////4HH0llOXuE8PKgQCm1zw3x2UZoSiUhd7NSt58RueRfeoAAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgYJ/az8JH2XxJJEj9K8ktSieOeM1ORsfUMTAGYcgT/NAAAA[0m14
+ originally caused by:
+  Started by user [8mha:////4OQh/mVhfxSlIxGyoFN7AY4CbvQmB1ClcY8nASylHp4eAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\jenkins\jenkins_home\workspace\DataHunter_Result
+[DataHunter_Result] $ cmd /c call C:\Users\S62991\AppData\Local\Temp\jenkins17791725195219262958.bat
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>C:
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>echo parmExecuteScriptVerificationPassed=true 
+parmExecuteScriptVerificationPassed=true
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>echo parmExecuteResult=Execution_OK 
+parmExecuteResult=Execution_OK
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>set PATH="C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>echo PATH is "C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem 
+PATH is "C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>java -version 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment 18.9 (build 11+28)
+OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Result>if "Execution_OK" EQU "Execution_OK" (
+echo "load results into graphical comparative analysis tooling"   
+ cd C:\mark59\mark59-trends-load\target  
+ java -jar mark59-trends-load.jar -a DataHunter -i C:\Mark59_Runs\Jmeter_Results\DataHunter -d h2   -r "<a href='http://localhost:8080/job/DataHunter_Result/21/HTML_Report'>run 21</a>"  
+ echo "convert xml file to csv"   
+ if exist C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\ RD /S /Q C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED	  
+ mkdir C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\   
+ cd C:\mark59\mark59-results-splitter\target  
+ java -jar mark59-results-splitter.jar -iC:\Mark59_Runs\Jmeter_Results\DataHunter -fDataHunterTestResults_converted.csv -mSplitByDataType -eRename -xTrue -cShowCDP  
+ echo "run jmeter report(s) generation"       
+ rmdir /s /q C:\Mark59_Runs\JenkinsJmeterReports\DataHunter  
+ md C:\Mark59_Runs\JenkinsJmeterReports\DataHunter  
+ rmdir /s /q C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_CPU_UTIL  
+ md C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_CPU_UTIL  
+ rmdir /s /q C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_DATAPOINT  
+ md C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_DATAPOINT  
+ rmdir /s /q C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_MEMORY  
+ md C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_MEMORY  
+ rmdir /s /q C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_METRICS  
+ md C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_METRICS  
+ cd C:\apache-jmeter\bin  
+ jmeter -Dlog4j2.formatMsgNoLookups=true -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted.csv -o C:\Mark59_Runs\JenkinsJmeterReports\DataHunter  
+ jmeter -Dlog4j2.formatMsgNoLookups=true -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_CPU_UTIL.csv -o C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_CPU_UTIL	  
+ jmeter -Dlog4j2.formatMsgNoLookups=true -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_DATAPOINT.csv -o C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_DATAPOINT	  
+ jmeter -Dlog4j2.formatMsgNoLookups=true -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Mark59_Runs\JenkinsJmeterReports\DataHunter\MERGED\DataHunterTestResults_converted_MEMORY.csv -o C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_MEMORY	  
+ jmeter -Dlog4j2.formatMsgNoLookups=true -Jjmeter.reportgenerator.overall_granularity=15000 -g  C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_METRICS.csv -o C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_METRICS  
+ TIME /T 
+) 
+"load results into graphical comparative analysis tooling" 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Starting Trends Load..   Version: 5.2
+
+TrendsLoad executing using the following arguments 
+-------------------------------------------------- 
+ application    : DataHunter
+ input          : C:\Mark59_Runs\Jmeter_Results\DataHunter
+ database       : h2
+ reference      : <a href='http://localhost:8080/job/DataHunter_Result/21/HTML_Report'>run 21</a>
+ tool           : Jmeter
+ dbserver       : localhost (all db settings hard-coded for h2
+ dbPort         : 
+ dbSchema       : trends
+ dbxtraurlparms : 
+ dbUsername     : sa
+ eXcludestart   : 0 (mins)
+ captureperiod  : All (mins)
+ ignoredErrors  : 
+ simulationlog  : simulation.log
+ simlogcustoM   : 
+ keeprawresults : false
+ timeZone       : Australia/Sydney
+------------------------------------------------   
+
+2022-10-15 11:15:42.848  INFO 888 --- [           main] com.mark59.trends.load.ApplicationEntry  : Starting ApplicationEntry v5.2 using Java 11 on L99730700 with PID 888 (C:\mark59\mark59-trends-load\target\mark59-trends-load.jar started by s62991 in C:\mark59\mark59-trends-load\target)
+2022-10-15 11:15:42.852  INFO 888 --- [           main] com.mark59.trends.load.ApplicationEntry  : The following 1 profile is active: "h2"
+2022-10-15 11:15:44.058  INFO 888 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-10-15 11:15:44.367  INFO 888 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-10-15 11:15:45.219  INFO 888 --- [           main] com.mark59.trends.load.ApplicationEntry  : Started ApplicationEntry in 3.054 seconds (JVM running for 3.816)
+Spring configuration complete, h2 database in use.
+
+***************************************************************************************
+*   The use of a H2 database is intended to assist in tutorials and 'quick start'.    *
+*   Please use a MySQL or PostgreSQL database for more formal work.                   *
+*                                                                                     *
+***************************************************************************************
+
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Sat Oct 15 11:15:45 AEDT 2022
+^
+
+   DataHunterTestResults.csv  file uploaded at Sat Oct 15 11:15:45 AEDT 2022 :
+        357 file lines processed
+        342 transaction samples created
+        took 0 secs
+
+____________________________________
+342 Total samples written
+ 
+
+Run start time set as 202210151114  [ Sat Oct 15 11:14:07 AEDT 2022, Timestamp 1665792847929 ] with a duration of 1 minutes.
+Run period of 20221015_111407 - 20221015_111530
+Epoch Range (msec)  [ 1665792847929 : 1665792930476 ]
+
+Collation of test transactional data starts at Sat Oct 15 11:15:45 AEDT 2022
+Collation of test transactional data completed Sat Oct 15 11:15:45 AEDT 2022. Took 0 secs
+
+TrendsLoad: SLA Failed Warning  : DH_lifecycle_0200_addPolicy has failed it's 90th Percentile Response Time SLA as recorded on the SLA database ! 
+                      response was 0.448 secs, SLA of 0.400
+TrendsLoad: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL Average on localhost.  Range is set as 5.0 to 60.0, actual was 65.5
+TrendsLoad: Metric SLA Failed Warning  : metric out of expected range for CPU_UTIL PercentOver90 on localhost.  Range is set as 0.0 to 10.0, actual was 25.0
+
+Trends Load completed.
+2022-10-15 11:15:45.646  INFO 888 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-10-15 11:15:45.674  INFO 888 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+"convert xml file to csv" 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Results Splitter starting..   Version: 5.2
+cwd = C:\mark59\mark59-results-splitter\target
+
+JmterResultsConverter  executing using the following arguments 
+-------------------------------------------------------------- 
+ inputdirectory        : C:\Mark59_Runs\Jmeter_Results\DataHunter
+ outputdirectoy        : C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED
+ outputFilename        : DataHunterTestResults_converted.csv
+ errortransactions     : Rename
+ eXcludeResultsWithSub : True
+ metricsfile           : SplitByDataType
+ cdpfilter             : ShowCDP
+-------------------------------------------------------------- 
+
+initializeCsvWriter C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted.csv
+initializeCsvWriter C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_CPU_UTIL.csv
+initializeCsvWriter C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_DATAPOINT.csv
+initializeCsvWriter C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_MEMORY.csv
+
+
+Processing CSV formatted Jmeter Results File DataHunterTestResults.csv at Sat Oct 15 11:15:46 AEDT 2022
+^
+
+   DataHunterTestResults.csv processing completed  at Sat Oct 15 11:15:46 AEDT 2022 :
+        357 file lines processed
+        342 transaction samples loaded
+        took 0 secs
+
+
+   MERGED bypassed
+____________________________________
+342 Total samples written
+ 
+
+Results Splitter completed.
+"run jmeter report(s) generation"     
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+An error occurred: Cannot read test results file : C:\Mark59_Runs\JenkinsJmeterReports\DataHunter\MERGED\DataHunterTestResults_converted_MEMORY.csv
+errorlevel=1
+Press any key to continue . . . 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+An error occurred: Cannot read test results file : C:\Mark59_Runs\Jmeter_Results\DataHunter\MERGED\DataHunterTestResults_converted_METRICS.csv
+errorlevel=1
+Press any key to continue . . . 
+11:16 AM
+Build step 'Console output (build log) parsing' changed build result to UNSTABLE
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level C:\Mark59_Runs\JenkinsJmeterReports\DataHunter to C:\jenkins\jenkins_home\jobs\DataHunter_Result\builds\21\htmlreports\Transactions_5fReport
+[htmlpublisher] Archiving at BUILD level C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_CPU_UTIL to C:\jenkins\jenkins_home\jobs\DataHunter_Result\builds\21\htmlreports\CPU_5fUtilizations_5fReport
+[htmlpublisher] Archiving at BUILD level C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_DATAPOINT to C:\jenkins\jenkins_home\jobs\DataHunter_Result\builds\21\htmlreports\Data_5fPoints_5fReport
+[htmlpublisher] Archiving at BUILD level C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_MEMORY to C:\jenkins\jenkins_home\jobs\DataHunter_Result\builds\21\htmlreports\Memory_5fMetrics_5fReport
+[htmlpublisher] Archiving at BUILD level C:\Mark59_Runs\JenkinsJmeterReports\DataHunter_METRICS to C:\jenkins\jenkins_home\jobs\DataHunter_Result\builds\21\htmlreports\All_5fMetrics_5fReport
+Finished: UNSTABLE

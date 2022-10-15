@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.2
+Build-Jdk-Spec: 11
+Extension-Name: sidebar-link
+Implementation-Title: sidebar-link
+Implementation-Version: 2.2.0
+Specification-Title: Add links in the sidebar of the Jenkins main page, 
+ view tabs and project pages.
+Group-Id: org.jenkins-ci.plugins
+Short-Name: sidebar-link
+Long-Name: Sidebar Link
+Url: https://github.com/jenkinsci/sidebar-link-plugin
+Compatible-Since-Version: 2.0.0
+Minimum-Java-Version: 1.8
+Plugin-Version: 2.2.0
+Hudson-Version: 2.332.2
+Jenkins-Version: 2.332.2
+Plugin-Dependencies: cloudbees-folder:6.714.v79e858ef76a_2;resolution:=o
+ ptional,structs:308.v852b473a2b8c
+Plugin-Developers: Damian Szczepanik:damianszczepanik:damianszczepanik@g
+ ithub,Alan Harder:mindless:
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/sidebar-link-plugin
+

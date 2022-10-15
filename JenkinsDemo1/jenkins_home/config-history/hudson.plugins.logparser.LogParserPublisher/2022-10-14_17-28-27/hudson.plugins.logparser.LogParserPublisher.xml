@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.plugins.logparser.LogParserPublisher_-DescriptorImpl plugin="log-parser@2.2">
+  <parsingRulesGlobal>
+    <hudson.plugins.logparser.ParserRuleFile>
+      <name>Log_Parse_Rules_Jmeter_Verification</name>
+      <path>C:\jenkins\jenkins_home\LogParseRulesJmeterVerification.txt</path>
+    </hudson.plugins.logparser.ParserRuleFile>
+    <hudson.plugins.logparser.ParserRuleFile>
+      <name>Log_Parse_Rules_Jmeter_Generic</name>
+      <path>C:\jenkins\jenkins_home\_parserules\LogParseRulesJmeterGeneric.txt</path>
+    </hudson.plugins.logparser.ParserRuleFile>
+  </parsingRulesGlobal>
+  <useLegacyFormatting>false</useLegacyFormatting>
+</hudson.plugins.logparser.LogParserPublisher_-DescriptorImpl>

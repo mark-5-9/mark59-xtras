@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.2
+Build-Jdk-Spec: 11
+Specification-Title: Dashboard View
+Specification-Version: 0.0
+Implementation-Title: Dashboard View
+Implementation-Version: 2.447.vda_124dd35f11
+Group-Id: org.jenkins-ci.plugins
+Short-Name: dashboard-view
+Long-Name: Dashboard View
+Url: https://github.com/jenkinsci/dashboard-view-plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 2.447.vda_124dd35f11
+Hudson-Version: 2.289.3
+Jenkins-Version: 2.289.3
+Plugin-Dependencies: junit:1.53.0.1,matrix-project:772.v494f19991984;res
+ olution:=optional
+Plugin-Developers: Tobias Gruetzmacher:TobiX:tobias-git@23.gs
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/dashboard-view-plugin
+

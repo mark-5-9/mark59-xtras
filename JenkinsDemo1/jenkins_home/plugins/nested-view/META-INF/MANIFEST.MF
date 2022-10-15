@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.2
+Build-Jdk-Spec: 11
+Specification-Title: Nested View Plugin
+Specification-Version: 1.26
+Implementation-Title: Nested View Plugin
+Implementation-Version: 1.26
+Group-Id: org.jenkins-ci.plugins
+Short-Name: nested-view
+Long-Name: Nested View Plugin
+Url: https://wiki.jenkins.io/display/JENKINS/Nested+View+Plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.26
+Hudson-Version: 2.341
+Jenkins-Version: 2.341
+Plugin-Developers: Alan Harder:mindless:
+Plugin-ScmUrl: https://github.com/jenkinsci/nested-view-plugin
+

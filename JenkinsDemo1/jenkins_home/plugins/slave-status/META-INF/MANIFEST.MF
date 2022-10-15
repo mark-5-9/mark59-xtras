@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jlf
+Build-Jdk: 1.6.0_29
+Extension-Name: slave-status
+Implementation-Title: slave-status
+Implementation-Version: 1.6
+Plugin-Class: com.youdevise.hudson.slavestatus.SlaveStatusPlugin
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: slave-status
+Long-Name: slave-status
+Url: http://wiki.jenkins-ci.org/display/JENKINS/slave-status
+Plugin-Version: 1.6
+Hudson-Version: 1.392
+Plugin-Developers: Douglas Squirrel:douglassquirrel:,Jesse Farinacci:j
+ ieryn:jieryn@gmail.com
+

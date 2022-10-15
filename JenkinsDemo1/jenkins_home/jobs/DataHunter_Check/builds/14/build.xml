@@ -1,0 +1,113 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.BooleanParameterValue>
+          <name>RunCI</name>
+          <description>Untick will perform this Script verification Job ONLY and will not trigger the full performance test.</description>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>Application</name>
+          <description>Application name as it will appear in the Mark59 Trends application</description>
+          <value>DataHunter</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>Duration</name>
+          <description>Test run Duration in seconds - Should be only a long as necessary to validate the test plan </description>
+          <value>30</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>Users</name>
+          <description>Number of users to use for shakeout. Will be applied across all (non-metric) thread groups that have been parameterized.</description>
+          <value>1</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>MonitoringUsers</name>
+          <description>Number of users to use for shakeout of the &apos;metric capture&apos; thread groups that have been parameterized (Usually either 1 or 0).</description>
+          <value>1</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>JmeterHome</name>
+          <value>C:\apache-jmeter</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>JmeterTestPlan</name>
+          <description>location of the test plan to execute</description>
+          <value>C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>OverrideTestResultsFile</name>
+          <description>Jmeter results file location generally set to some temp location for verify, so as not to be confused with actual test</description>
+          <value>C:\Temp\DataHunterTestResults.csv</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>KillDrivers</name>
+          <description>Removes drives and browsers that may be left over from previous jobs 
+(you may want to create separate jobs to Kill or not Kill drivers and browsers) </description>
+          <value>false</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam1</name>
+          <description>ExtraParma1 - ExtraParam10 Available&lt;br&gt;
+Additional optional arguments that can be passed to Jmeter. For example, if your test plan has a parameter &apos;ForceTxnFailPercent&apos;  
+(sample usage :  &lt;b&gt;&lt;code&gt;${__P(ForceTxnFailPercent,25)}&lt;/code&gt;&lt;/b&gt; ), then a value can be passed from here such as:  &lt;br&gt;
+&lt;b&gt;&lt;code&gt;-JForceTxnFailPercent=50&lt;/code&gt;&lt;/b&gt;</description>
+          <value>-JForceTxnFailPercent=0</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ExtraParam2</name>
+          <description>You can add all the &apos;ExtraParam&apos; arguments in here if you wish , and leave there Default Values blank if they are not required </description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SetPath</name>
+          <description>the location of the Java version to use, and the wbem location. Used to invoke commands.  
+wbem is required to run the WMIC commands used to capture Win metric data, and is not by default on the path.</description>
+          <value>&quot;C:\Java\jdk-11\bin&quot;;C:\Windows\System32;C:\windows\system32\wbem</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>RunCI</string>
+        <string>Application</string>
+        <string>Duration</string>
+        <string>Users</string>
+        <string>MonitoringUsers</string>
+        <string>JmeterHome</string>
+        <string>JmeterTestPlan</string>
+        <string>OverrideTestResultsFile</string>
+        <string>KillDrivers</string>
+        <string>ExtraParam1</string>
+        <string>ExtraParam2</string>
+        <string>SetPath</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.parameterizedtrigger.CapturedEnvironmentAction plugin="parameterized-trigger@2.45"/>
+  </actions>
+  <queueId>1</queueId>
+  <timestamp>1665792775353</timestamp>
+  <startTime>1665792775371</startTime>
+  <result>SUCCESS</result>
+  <duration>53282</duration>
+  <charset>windows-1252</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>C:\jenkins\jenkins_home\workspace\DataHunter_Check</workspace>
+  <hudsonVersion>2.361.2</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="java.util.Collections$UnmodifiableSet">
+    <c class="sorted-set"/>
+  </culprits>
+</build>

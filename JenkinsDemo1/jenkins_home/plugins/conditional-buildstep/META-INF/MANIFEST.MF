@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.289.1
+Plugin-Dependencies: maven-plugin:3.16;resolution:=optional,run-condit
+ ion:1.5,token-macro:280.v97a_82642793c
+Implementation-Title: conditional-buildstep
+Long-Name: Conditional BuildStep
+Implementation-Version: 1.4.2
+Group-Id: org.jenkins-ci.plugins
+Minimum-Java-Version: 1.8
+Plugin-License-Name: The MIT license
+Specification-Title: A buildstep wrapping any number of other buildste
+ ps, controlling their execution based on a defined condition.
+Plugin-ScmUrl: https://github.com/jenkinsci/conditional-buildstep-plug
+ in
+Plugin-Version: 1.4.2
+Jenkins-Version: 2.289.1
+Url: https://plugins.jenkins.io/conditional-buildstep/
+Short-Name: conditional-buildstep
+Plugin-Developers: Dominik Bartholdi:imod:,Bap:bap:bap-jenkins@BapIT.c
+ o.uk
+Extension-Name: conditional-buildstep
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+

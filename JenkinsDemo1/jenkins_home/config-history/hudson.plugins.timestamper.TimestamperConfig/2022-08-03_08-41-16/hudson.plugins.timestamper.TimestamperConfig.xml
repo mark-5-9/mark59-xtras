@@ -1,0 +1,5 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.plugins.timestamper.TimestamperConfig plugin="timestamper@1.18">
+  <timestampFormat>&apos;&lt;b&gt;&apos;HH:mm:ss&apos;&lt;/b&gt; &apos;</timestampFormat>
+  <allPipelines>false</allPipelines>
+</hudson.plugins.timestamper.TimestamperConfig>

@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: fr3d
+Build-Jdk: 11.0.13
+Extension-Name: extra-columns
+Specification-Title: The Jenkins Plugins Parent POM Project
+Implementation-Title: extra-columns
+Implementation-Version: 1.25
+Group-Id: org.jenkins-ci.plugins
+Short-Name: extra-columns
+Long-Name: Extra Columns Plugin
+Url: https://github.com/jenkinsci/extra-columns-plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.25
+Hudson-Version: 2.249.1
+Jenkins-Version: 2.249.1
+Plugin-Dependencies: workflow-job:2.40;resolution:=optional,junit:1.49
+Plugin-Developers: Fred G.:fredg:
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/extra-columns-plugin
+

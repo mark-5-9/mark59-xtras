@@ -1,0 +1,53 @@
+Started by upstream project "[8mha:////4F6FaYguEBugFA5C8IYY96jzxdnorgE0vmPc3JHF5rNjAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyBEgYx/az8JH2XxJJEj9K8ktSieOeM1ORsfQB8LepDywAAAA==[0mDataHunter_Check" build number [8mha:////4HH0llOXuE8PKgQCm1zw3x2UZoSiUhd7NSt58RueRfeoAAAApB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgYJ/az8JH2XxJJEj9K8ktSieOeM1ORsfUMTAGYcgT/NAAAA[0m14
+originally caused by:
+ Started by user [8mha:////4OQh/mVhfxSlIxGyoFN7AY4CbvQmB1ClcY8nASylHp4eAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace C:\jenkins\jenkins_home\workspace\DataHunter_Execute
+[DataHunter_Execute] $ cmd /c call C:\Users\S62991\AppData\Local\Temp\jenkins1777955069036733559.bat
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>REM *** In a real CI system these commands should be moved to a .bat file for easier maintenance ** 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>REM
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>REM  Run the Jmeter Test in non-GUI mode from Jenkins  
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>REM   
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>if true EQU false (
+call C:\work\Admin\JenkinsConfig\reportUnstable.bat  
+ Exit /B 0 
+) 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>echo "execting test plan.........................." 
+"execting test plan.........................."
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>if true EQU false (Exit /B 1 ) 
+
+C:\jenkins\jenkins_home\workspace\DataHunter_Execute>if true EQU true (
+C: 
+ if exist C:\Mark59_Runs\Jmeter_Results\DataHunter\ RD /Q /S C:\Mark59_Runs\Jmeter_Results\DataHunter  
+ mkdir C:\Mark59_Runs\Jmeter_Results\DataHunter  
+ REM https://www.howtogeek.com/forum/topic/wmic-not-recognized-as-an-internal-or-external-command (wmic, similar issue for ssh)  
+ set path="C:\Java\jdk-11\bin";C:\Windows\System32;C:\windows\system32\wbem  
+ cd C:\apache-jmeter\bin  
+ break1>C:\Mark59_Runs\Jmeter_Results\DataHunter\DataHunterTestResults.csv  
+ jmeter -n -X -f -t C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx -Dlog4j2.formatMsgNoLookups=true -Dserver.rmi.ssl.disable=true -Dlog4j2.formatMsgNoLookups=true  -l C:\Mark59_Runs\Jmeter_Results\DataHunter\DataHunterTestResults.csv   -JForceTxnFailPercent=0 -JStartCdpListeners=true          
+ EXIT /B 0 
+) 
+Picked up JAVA_TOOL_OPTIONS: -agentpath:"C:\WINDOWS\system32\Aternity\Java\JavaHookLoader.dll"="C:\ProgramData\Aternity\hooks"
+Creating summariser <summary>
+Created the tree successfully using C:\mark59\mark59-datahunter-samples\test-plans\DataHunterSeleniumTestPlan.jmx
+Starting standalone test @ 2022 Oct 15 11:13:58 AEDT (1665792838076)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+Warning: Nashorn engine is planned to be removed from a future JDK release
+OS property has been set to : WINDOWS
+summary +      3 in 00:00:32 =    0.1/s Avg: 12072 Min:  8841 Max: 16901 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary +      7 in 00:00:35 =    0.2/s Avg: 20107 Min: 10050 Max: 32207 Err:     0 (0.00%) Active: 5 Started: 5 Finished: 0
+summary =     10 in 00:01:07 =    0.1/s Avg: 17696 Min:  8841 Max: 32207 Err:     0 (0.00%)
+summary +      5 in 00:00:25 =    0.2/s Avg: 20424 Min:  9261 Max: 32348 Err:     0 (0.00%) Active: 1 Started: 5 Finished: 4
+summary =     15 in 00:01:32 =    0.2/s Avg: 18606 Min:  8841 Max: 32348 Err:     0 (0.00%)
+summary =     15 in 00:01:32 =    0.2/s Avg: 18606 Min:  8841 Max: 32348 Err:     0 (0.00%)
+Tidying up ...    @ 2022 Oct 15 11:15:31 AEDT (1665792931137)
+... end of run
+Triggering a new build of [8mha:////4FE95bxZV4oOGsUg5pgn/XAiuPl5G3cuoIaw52eVcTmGAAAAox+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzBEgZx/az8JH2XxJJEj9K8ktSi+KDU4tKcEn0AVwdvdMwAAAA=[0mDataHunter_Result
+Finished: SUCCESS
